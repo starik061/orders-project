@@ -35,7 +35,8 @@ export default defineConfigWithVueTs(
             lang: 'scss'
           }
         }
-      ]
+      ],
+      'vue/multi-word-component-names': 'off'
     }
   }
 )

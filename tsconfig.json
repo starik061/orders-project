@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "strict": false // удалить для включения линтинга ts
+  },
   "files": [],
   "references": [
     {

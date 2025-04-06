@@ -1,10 +1,37 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import First from '@/components/First.vue'
+import NavLayout from '@/layouts/NavLayout.vue'
+import DevelopmentView from '@/views/DevelopmentView.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: First // создадим этот файл позже
+    component: NavLayout,
+    children: [
+      {
+        path: '',
+        name: 'Receiving',
+        component: DevelopmentView
+      },
+      {
+        path: 'groups',
+        name: 'Groups',
+        component: DevelopmentView
+      },
+      {
+        path: 'products',
+        name: 'Products',
+        component: DevelopmentView
+      },
+      {
+        path: 'users',
+        name: 'Users',
+        component: DevelopmentView
+      },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: DevelopmentView
+      }
+    ]
   }
 ]
 

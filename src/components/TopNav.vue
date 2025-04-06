@@ -77,10 +77,17 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
+header {
+  position: relative;
+  box-shadow: var(--shadow-main);
+  z-index: 1;
+}
+
 .top-nav {
   display: flex;
-  width: 100vw;
-  padding: 20px 7vw;
+  width: 100%;
+  height: 65px;
+  padding: 0 7vw;
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
@@ -114,7 +121,7 @@ onUnmounted(() => {
 
   &:hover {
     border-color: #aab4be;
-    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-main);
     background: #f7f9fb;
   }
 

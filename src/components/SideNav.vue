@@ -1,26 +1,24 @@
 <template>
-  <aside class="side-nav-container">
-    <div class="avatar-wrapper">
-      <img class="avatar" src="@/assets/img/avatar-placeholder.png" alt="avatar" width="90px" height="90px">
-      <button class="avatar-settings-btn">
-        <IconAvatarSettings class="avatar-settings-btn-icon" />
+  <aside class="side-nav">
+    <div class="side-nav__avatar">
+      <img class="side-nav__avatar-img" src="@/assets/img/avatar-placeholder.png" alt="avatar" />
+      <button class="side-nav__avatar-btn">
+        <IconAvatarSettings class="side-nav__avatar-icon" />
       </button>
     </div>
 
-    <ul class="nav-list">
-      <li v-for="item in navItems" :key="item.name" class="nav-list__item">
-        <RouterLink :to="item.to" class="nav-list__link" :class="{ active: isActive(item.to) }">
+    <ul class="side-nav__list">
+      <li v-for="item in navItems" :key="item.name" class="side-nav__item">
+        <RouterLink :to="item.to" class="side-nav__link" :class="{ active: isActive(item.to) }">
           {{ item.label }}
         </RouterLink>
       </li>
     </ul>
-
-
   </aside>
 </template>
 
 <script setup>
-import IconAvatarSettings from "@/components/icons/IconAvatarSettings.vue";
+import IconAvatarSettings from '@/components/icons/IconAvatarSettings.vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -33,82 +31,59 @@ const navItems = [
   { to: '/settings', label: 'Настройки' }
 ]
 
-const isActive = (path) => {
-  return route.path === path
-}
+const isActive = (path) => route.path === path
 </script>
 
 <style lang="scss" scoped>
-.side-nav-container {
+.side-nav__avatar {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 50px;
-  width: fit-content;
-  max-width: 300px;
-  height: calc(100vh - 65px);
-  background-color: #ffffff;
-  padding: 50px 45px;
-  box-shadow: var(--shadow-main-right);
-  z-index: 0;
+  margin-bottom: 40px;
 }
 
-.avatar-wrapper {
-  position: relative;
-  flex-grow: 0;
-  flex-shrink: 0;
-  display: inline-block;
+.side-nav__avatar-img {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
+  object-fit: cover;
+  background-color: #7cb342;
   box-shadow: var(--shadow-main);
 }
 
-.avatar {
-  display: block;
-  object-fit: cover;
-  border-radius: 50%;
-  background-color: #7cb342;
-  overflow: hidden;
-}
-
-.avatar-settings-btn {
+.side-nav__avatar-btn {
   position: absolute;
-  top: 55%;
-  right: 0;
-  width: 45px;
-  height: 45px;
-  transform: translate(15%, 0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 60%;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  background: #fff;
   border-radius: 50%;
-  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: var(--shadow-main);
   cursor: pointer;
 }
 
-.avatar-settings-btn-icon {
-  width: 55%;
-  height: 55%;
+.side-nav__avatar-icon {
+  width: 60%;
+  height: 60%;
 }
 
-.nav-list {
+.side-nav__list {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  gap: 20px;
   align-items: center;
-  gap: 30px;
-  width: 100%;
 }
 
-.nav-list__link {
+.side-nav__link {
   position: relative;
-  display: inline-block;
-  padding: 2px 0;
-  color: #000000;
+  color: #000;
   text-transform: uppercase;
   font-weight: bold;
+  padding: 4px 0;
+  transition: 0.2s ease;
 
   &.active::after,
   &:hover::after {
@@ -117,11 +92,10 @@ const isActive = (path) => {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    display: block;
     width: 110%;
     height: 3px;
-    border-radius: 1.5px;
     background-color: var(--color-main-green);
+    border-radius: 1.5px;
   }
 }
 </style>

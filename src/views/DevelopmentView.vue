@@ -1,7 +1,7 @@
 <template>
   <div class="dev-container">
     <img class="dev-img" src="/public/img/development-placeholder.png" alt="development image">
-    <p class="text">The page is under development</p>
+    <p class="text">This page is under development</p>
   </div>
 </template>
 

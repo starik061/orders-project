@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <TopNav />
+    <TopNav class="layout__top" />
 
     <div class="layout__body">
       <SideNav class="layout__sidebar" />
@@ -13,32 +13,54 @@
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router'
-import SideNav from '@/components/SideNav.vue'
 import TopNav from '@/components/TopNav.vue'
+import SideNav from '@/components/SideNav.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <style scoped lang="scss">
 .layout {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
+  overflow: hidden;
+}
+
+.layout__top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  z-index: 1000;
+  background: white;
+  border-bottom: 1px solid #ddd;
 }
 
 .layout__body {
   display: flex;
-  flex: 1;
+  margin-top: 65px; // компенсация высоты TopNav
+  height: calc(100vh - 65px);
 }
 
 .layout__sidebar {
+  position: fixed;
+  top: 65px;
+  left: 0;
   width: 240px;
-  background-color: #f5f5f5;
-  flex-shrink: 0;
+  height: calc(100vh - 65px);
+  background-color: #fff;
+  box-shadow: var(--shadow-main-right);
+  z-index: 100;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .layout__content {
-  flex: 1;
+  margin-left: 240px; // компенсация ширины SideNav
   padding: 20px;
+  width: calc(100% - 240px);
+  height: calc(100vh - 65px);
   overflow-y: auto;
 }
 </style>

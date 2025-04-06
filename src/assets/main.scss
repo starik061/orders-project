@@ -1,2 +1,7 @@
 @use './base' as *;
 @import 'normalize.css';
+
+:root {
+  --color-main-green: #7cb342;
+  --color-main-text: #000000;
+}

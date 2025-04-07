@@ -1,13 +1,15 @@
 <template>
   <div class="dev-container">
-    <img class="dev-img" src="/public/img/development-placeholder.png" alt="development image">
+    <img
+      class="dev-img"
+      src="/public/img/development-placeholder.png"
+      alt="development image"
+    />
     <p class="text">This page is under development</p>
   </div>
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .dev-container {

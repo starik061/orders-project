@@ -1,14 +1,24 @@
 <template>
   <div class="spinner-container">
     <div class="spinner"></div>
-    <p v-if="message" class="spinner-message">{{ message }}</p>
+    <p
+      v-if="message"
+      class="spinner-message"
+    >
+      {{ message }}
+    </p>
   </div>
 </template>
 
 <template>
   <div class="spinner-container">
     <div class="spinner"></div>
-    <p v-if="message" class="spinner-message">{{ message }}</p>
+    <p
+      v-if="message"
+      class="spinner-message"
+    >
+      {{ message }}
+    </p>
   </div>
 </template>
 
@@ -18,7 +28,7 @@ defineProps({
     type: String,
     default: 'Загрузка данных...'
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>

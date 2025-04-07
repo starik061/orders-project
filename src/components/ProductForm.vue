@@ -1,11 +1,22 @@
 <template>
-  <div ref="tableContainer" class="products-table-container" @mousedown="startDrag" @mouseleave="stopDrag">
-    <div v-if="isEmptyState" class="empty-state">
+  <div
+    ref="tableContainer"
+    class="products-table-container"
+    @mousedown="startDrag"
+    @mouseleave="stopDrag"
+  >
+    <div
+      v-if="isEmptyState"
+      class="empty-state"
+    >
       <div class="empty-icon">📦</div>
       <h3>Список продуктов пуст</h3>
       <p>В данный момент в системе нет продуктов</p>
     </div>
-    <table v-else class="table">
+    <table
+      v-else
+      class="table"
+    >
       <thead>
         <tr>
           <th></th>
@@ -22,13 +33,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in products" :key="product.id" class="product-row">
+        <tr
+          v-for="product in products"
+          :key="product.id"
+          class="product-row"
+        >
           <td>
-            <span class="dot" :class="{ 'dot-green': product.isNew === 1, 'dot-gray': product.isNew === 0 }"></span>
+            <span
+              class="dot"
+              :class="{ 'dot-green': product.isNew === 1, 'dot-gray': product.isNew === 0 }"
+            ></span>
           </td>
           <td>
             <div class="product-model">
-              <img :src="product.photo || ProductPlaceholderImg" alt="Компьютер" class="product-photo" />
+              <img
+                :src="product.photo || ProductPlaceholderImg"
+                alt="Компьютер"
+                class="product-photo"
+              />
               <div>
                 <div>{{ product.title }}</div>
                 <div class="serial-number">SN {{ product.serialNumber }}</div>
@@ -37,7 +59,12 @@
           </td>
           <td>
             <div class="status-container">
-              <span :class="{ 'status-free': product.isNew === 1, 'status-repair': product.isNew === 0 }">
+              <span
+                :class="{
+                  'status-free': product.isNew === 1,
+                  'status-repair': product.isNew === 0
+                }"
+              >
                 {{ product.isNew === 1 ? 'свободен' : 'в ремонте' }}
               </span>
             </div>
@@ -55,7 +82,10 @@
           </td>
           <td>
             <div class="price-container">
-              <div>{{ getDefaultPrice(product.price).value }} {{ getDefaultPrice(product.price).symbol }}</div>
+              <div>
+                {{ getDefaultPrice(product.price).value }}
+                {{ getDefaultPrice(product.price).symbol }}
+              </div>
               <div>{{ product.type }}</div>
             </div>
           </td>
@@ -72,9 +102,16 @@
             <div>{{ formatShortDate(product.date) }}</div>
           </td>
           <td>
-            <button class="delete-button" aria-label="Удалить" :disabled="isDeleting === product.id"
-              @click="handleDeleteProductBtn(product)">
-              <div v-if="isDeleting === product.id" class="button-spinner"></div>
+            <button
+              class="delete-button"
+              aria-label="Удалить"
+              :disabled="isDeleting === product.id"
+              @click="handleDeleteProductBtn(product)"
+            >
+              <div
+                v-if="isDeleting === product.id"
+                class="button-spinner"
+              ></div>
               <IconDeleteBin v-else />
             </button>
           </td>
@@ -85,17 +122,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import ProductPlaceholderImg from "@/assets/img/product-placeholder.webp";
-import IconDeleteBin from "./icons/IconDeleteBin.vue";
-import { deleteProduct } from "@/api/orders";
+import { ref, onMounted, onUnmounted } from 'vue'
+import ProductPlaceholderImg from '@/assets/img/product-placeholder.webp'
+import IconDeleteBin from './icons/IconDeleteBin.vue'
+import { deleteProduct } from '@/api/orders'
 
-const emit = defineEmits(['productDeleted', 'deleteError']);
-const isDeleting = ref(null);
-const tableContainer = ref(null);
-const isDragging = ref(false);
-const startX = ref(0);
-const scrollLeft = ref(0);
+const emit = defineEmits(['productDeleted', 'deleteError'])
+const isDeleting = ref(null)
+const tableContainer = ref(null)
+const isDragging = ref(false)
+const startX = ref(0)
+const scrollLeft = ref(0)
 
 defineProps({
   products: {
@@ -110,118 +147,126 @@ defineProps({
     type: Boolean,
     default: false
   }
-});
+})
 
 // Функция для начала перетаскивания
 const startDrag = (e) => {
   // Проверяем, не взаимодействует ли пользователь с кнопкой или другим интерактивным элементом
   if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) {
-    return;
+    return
   }
 
-  isDragging.value = true;
-  startX.value = e.pageX - tableContainer.value.offsetLeft;
-  scrollLeft.value = tableContainer.value.scrollLeft;
+  isDragging.value = true
+  startX.value = e.pageX - tableContainer.value.offsetLeft
+  scrollLeft.value = tableContainer.value.scrollLeft
 
   // Добавляем курсор-захват при перетаскивании
-  document.body.style.cursor = 'grabbing';
+  document.body.style.cursor = 'grabbing'
 
   // Добавляем класс для предотвращения выделения текста при перетаскивании
-  document.body.classList.add('no-select');
-};
+  document.body.classList.add('no-select')
+}
 
 // Функция для процесса перетаскивания
 const doDrag = (e) => {
-  if (!isDragging.value) return;
+  if (!isDragging.value) return
 
-  e.preventDefault();
-  const x = e.pageX - tableContainer.value.offsetLeft;
-  const walk = (x - startX.value) * 1.5; // Множитель для ускорения скролла
-  tableContainer.value.scrollLeft = scrollLeft.value - walk;
-};
+  e.preventDefault()
+  const x = e.pageX - tableContainer.value.offsetLeft
+  const walk = (x - startX.value) * 1.5 // Множитель для ускорения скролла
+  tableContainer.value.scrollLeft = scrollLeft.value - walk
+}
 
 // Функция для завершения перетаскивания
 const stopDrag = () => {
-  isDragging.value = false;
-  document.body.style.cursor = '';
-  document.body.classList.remove('no-select');
-};
+  isDragging.value = false
+  document.body.style.cursor = ''
+  document.body.classList.remove('no-select')
+}
 
-// Получение заголовка заказа из самого продукта
+// Получение заголовка заказа
 const getOrderTitle = (product) => {
-  return product.orderTitle || '—';
-};
+  return product.orderTitle || '—'
+}
 
-// Получение ответственного из самого продукта (если появится)
+// Получение ответственного
 const getResponsible = (product) => {
-  return product.responsible || '—';
-};
+  return product.responsible || '—'
+}
 
 // Получение цены по умолчанию
 const getDefaultPrice = (priceArray) => {
-  const defaultPrice = priceArray.find(price => price.isDefault === 1);
-  return defaultPrice || priceArray[0];
-};
+  const defaultPrice = priceArray.find((price) => price.isDefault === 1)
+  return defaultPrice || priceArray[0]
+}
 
 // Функция для форматирования даты в формате "DD / MM / YYYY"
 const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day} / ${month} / ${year}`;
-};
+  const date = new Date(dateString)
+  const day = date.getDate().toString().padStart(2, '0')
+  const month = (date.getMonth() + 1).toString().padStart(2, '0')
+  const year = date.getFullYear()
+  return `${day} / ${month} / ${year}`
+}
 
 // Функция для форматирования короткой даты в формате "DD / Мес / YYYY"
 const formatShortDate = (dateString) => {
-  const date = new Date(dateString);
-  const day = date.getDate().toString().padStart(2, '0');
-  const months = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
-  const month = months[date.getMonth()];
-  const year = date.getFullYear();
-  return `${day} / ${month} / ${year}`;
-};
+  const date = new Date(dateString)
+  const day = date.getDate().toString().padStart(2, '0')
+  const months = [
+    'Янв',
+    'Фев',
+    'Мар',
+    'Апр',
+    'Май',
+    'Июн',
+    'Июл',
+    'Авг',
+    'Сен',
+    'Окт',
+    'Ноя',
+    'Дек'
+  ]
+  const month = months[date.getMonth()]
+  const year = date.getFullYear()
+  return `${day} / ${month} / ${year}`
+}
 
 // Функция для обработки удаления продукта
 const handleDeleteProductBtn = async (product) => {
   if (!product || !product.id) {
-    console.error('Невозможно удалить продукт без ID');
-    return;
+    console.error('Невозможно удалить продукт без ID')
+    return
   }
 
   try {
-    isDeleting.value = product.id;
+    isDeleting.value = product.id
 
     // Вызываем API для удаления продукта
-    const result = await deleteProduct(product.id);
+    const result = await deleteProduct(product.id)
 
     if (result.success) {
-      // Отправляем событие об успешном удалении
-      emit('productDeleted', product.id);
-      console.log(`Продукт успешно удален: ${product.title} (ID: ${product.id})`);
+      emit('productDeleted', product.id)
     } else {
-      throw new Error(result.message || 'Ошибка при удалении продукта');
+      throw new Error(result.message || 'Ошибка при удалении продукта')
     }
   } catch (error) {
-    console.error('Ошибка при удалении продукта:', error);
-    emit('deleteError', { productId: product.id, error: error.message || String(error) });
+    console.error('Ошибка при удалении продукта:', error)
+    emit('deleteError', { productId: product.id, error: error.message || String(error) })
   } finally {
-    isDeleting.value = null;
+    isDeleting.value = null
   }
-};
+}
 
-// Хуки жизненного цикла для добавления и удаления обработчиков событий
 onMounted(() => {
-  // Добавляем глобальные обработчики событий
-  window.addEventListener('mousemove', doDrag);
-  window.addEventListener('mouseup', stopDrag);
-});
+  window.addEventListener('mousemove', doDrag)
+  window.addEventListener('mouseup', stopDrag)
+})
 
 onUnmounted(() => {
-  // Удаляем глобальные обработчики событий при уничтожении компонента
-  window.removeEventListener('mousemove', doDrag);
-  window.removeEventListener('mouseup', stopDrag);
-});
+  window.removeEventListener('mousemove', doDrag)
+  window.removeEventListener('mouseup', stopDrag)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -360,7 +405,6 @@ onUnmounted(() => {
     width: 30px;
   }
 
-
   .dot {
     display: inline-block;
     width: 8px;
@@ -368,11 +412,11 @@ onUnmounted(() => {
     border-radius: 50%;
 
     &-green {
-      background-color: #4CAF50;
+      background-color: #4caf50;
     }
 
     &-gray {
-      background-color: #9E9E9E;
+      background-color: #9e9e9e;
     }
   }
 
@@ -399,11 +443,11 @@ onUnmounted(() => {
 
   .status {
     &-free {
-      color: #4CAF50;
+      color: #4caf50;
     }
 
     &-repair {
-      color: #9E9E9E;
+      color: #9e9e9e;
     }
   }
 

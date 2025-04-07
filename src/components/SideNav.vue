@@ -1,15 +1,27 @@
 <template>
   <aside class="side-nav">
     <div class="side-nav__avatar">
-      <img class="side-nav__avatar-img" src="@/assets/img/avatar-placeholder.png" alt="avatar" />
+      <img
+        class="side-nav__avatar-img"
+        src="@/assets/img/avatar-placeholder.png"
+        alt="avatar"
+      />
       <button class="side-nav__avatar-btn">
         <IconAvatarSettings class="side-nav__avatar-icon" />
       </button>
     </div>
 
     <ul class="side-nav__list">
-      <li v-for="item in navItems" :key="item.name" class="side-nav__item">
-        <RouterLink :to="item.to" class="side-nav__link" :class="{ active: isActive(item.to) }">
+      <li
+        v-for="item in navItems"
+        :key="item.name"
+        class="side-nav__item"
+      >
+        <RouterLink
+          :to="item.to"
+          class="side-nav__link"
+          :class="{ active: isActive(item.to) }"
+        >
           {{ item.label }}
         </RouterLink>
       </li>

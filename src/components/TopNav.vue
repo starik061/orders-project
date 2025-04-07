@@ -1,12 +1,22 @@
 <template>
   <header>
     <nav class="top-nav">
-      <RouterLink class="logo-wrapper" to="/">
-        <img src="/public/img/logo.svg" alt="logo">
+      <RouterLink
+        class="logo-wrapper"
+        to="/"
+      >
+        <img
+          src="/public/img/logo.svg"
+          alt="logo"
+        />
         <span class="logo-text">Inventory</span>
       </RouterLink>
 
-      <input class="search-input" type="text" placeholder="поиск">
+      <input
+        class="search-input"
+        type="text"
+        placeholder="поиск"
+      />
 
       <div class="date-time-container">
         <p>{{ getWeekdayName(new Date()) }}</p>
@@ -24,43 +34,45 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import IconClock from "@/components/icons/IconClock.vue";
+import IconClock from '@/components/icons/IconClock.vue'
 
-const currentTime = ref('00:00');
-let timeInterval = null;
+const currentTime = ref('00:00')
+let timeInterval = null
 function getWeekdayName(dateInput) {
-  const days = [
-    'Воскресенье',
-    'Понедельник',
-    'Вторник',
-    'Среда',
-    'Четверг',
-    'Пятница',
-    'Суббота'
-  ];
+  const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
 
-  const date = new Date(dateInput);
-  return days[date.getDay()];
+  const date = new Date(dateInput)
+  return days[date.getDay()]
 }
 function getDate(dateInput) {
   const months = [
-    'Янв.', 'Фев.', 'Мар.', 'Апр.', 'Мая', 'Июн.',
-    'Июл.', 'Авг.', 'Сен.', 'Окт.', 'Ноя.', 'Дек.'
-  ];
+    'Янв.',
+    'Фев.',
+    'Мар.',
+    'Апр.',
+    'Мая',
+    'Июн.',
+    'Июл.',
+    'Авг.',
+    'Сен.',
+    'Окт.',
+    'Ноя.',
+    'Дек.'
+  ]
 
-  const date = new Date(dateInput);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = months[date.getMonth()];
-  const year = date.getFullYear();
+  const date = new Date(dateInput)
+  const day = String(date.getDate()).padStart(2, '0')
+  const month = months[date.getMonth()]
+  const year = date.getFullYear()
 
-  return `${day} ${month} ${year}`;
+  return `${day} ${month} ${year}`
 }
 
 function getTime(dateInput) {
-  const date = new Date(dateInput);
-  const hours = String(date.getHours()).padStart(2, '0');
-  const minutes = String(date.getMinutes()).padStart(2, '0');
-  return `${hours}:${minutes}`;
+  const date = new Date(dateInput)
+  const hours = String(date.getHours()).padStart(2, '0')
+  const minutes = String(date.getMinutes()).padStart(2, '0')
+  return `${hours}:${minutes}`
 }
 
 onMounted(() => {
@@ -146,8 +158,7 @@ header {
   align-items: flex-start;
   gap: 5px;
   margin-left: auto;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .day-time-wrapper {

@@ -73,7 +73,7 @@ const isActive = (path) => route.path === path
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
 }
 

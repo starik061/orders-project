@@ -1,81 +1,2233 @@
 {
   "orders": [
     {
-      "id": 1,
-      "title": "Order 1",
-      "date": "2017-06-29 12:09:33",
-      "description": "desc",
+      "id": 7,
+      "title": "Оснащение нового склада",
+      "date": "2023-09-27 20:25:48",
+      "description": "",
       "products": [
         {
-          "id": 1,
-          "serialNumber": 1234,
-          "isNew": 1,
-          "photo": "pathToFile.jpg",
-          "title": "Product 1",
-          "type": "Monitors",
-          "specification": "Specification 1",
+          "id": 1001,
+          "serialNumber": "SN60196052",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
           "guarantee": {
-            "start": "2017-06-29 12:09:33",
-            "end": "2017-06-29 12:09:33"
+            "start": "2022-10-13 11:22:21",
+            "end": "2023-10-13 11:22:21"
           },
           "price": [
             {
-              "value": 100,
+              "value": 380.39,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 7,
+          "date": "2022-10-13 11:22:21",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1002,
+          "serialNumber": "SN33747621",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Microsoft Surface Pro 9",
+          "type": "Tablets",
+          "specification": "13\" планшет с клавиатурой",
+          "guarantee": {
+            "start": "2024-07-23 22:47:58",
+            "end": "2026-07-23 22:47:58"
+          },
+          "price": [
+            {
+              "value": 547.66,
               "symbol": "USD",
               "isDefault": 0
             },
             {
-              "value": 2600,
+              "value": 59512.86,
               "symbol": "UAH",
               "isDefault": 1
             }
           ],
-          "order": 1,
-          "date": "2017-06-29 12:09:33"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Order 2",
-      "date": "2017-06-29 12:09:33",
-      "description": "desc",
-      "products": [
+          "order": 7,
+          "date": "2024-07-23 22:47:58"
+        },
         {
-          "id": 2,
-          "serialNumber": 1234,
+          "id": 1003,
+          "serialNumber": "SN54894617",
           "isNew": 1,
-          "photo": "pathToFile.jpg",
-          "title": "Product 2",
-          "type": "Monitors",
-          "specification": "Specification 2",
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
           "guarantee": {
-            "start": "2017-06-29 12:09:33",
-            "end": "2017-06-29 12:09:33"
+            "start": "2022-07-20 04:52:55",
+            "end": "2024-07-19 04:52:55"
           },
           "price": [
             {
-              "value": 100,
+              "value": 798.6,
               "symbol": "USD",
               "isDefault": 0
             },
             {
-              "value": 2600,
+              "value": 5154.6,
               "symbol": "UAH",
               "isDefault": 1
             }
           ],
-          "order": 2,
-          "date": "2017-06-29 12:09:33"
+          "order": 7,
+          "date": "2022-07-20 04:52:55",
+          "responsible": "Петров П.П."
+        },
+        {
+          "id": 1004,
+          "serialNumber": "SN39356565",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+          "title": "BenQ PD3220U",
+          "type": "Monitors",
+          "specification": "32\" 4K монитор",
+          "guarantee": {
+            "start": "2023-02-15 05:38:42",
+            "end": "2025-02-14 05:38:42"
+          },
+          "price": [
+            {
+              "value": 401.58,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 19040.52,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 7,
+          "date": "2023-02-15 05:38:42"
+        },
+        {
+          "id": 1005,
+          "serialNumber": "SN15255596",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1585079542156-2755d9c121e2",
+          "title": "Zebra DS2208",
+          "type": "Scanners",
+          "specification": "Ручной 2D сканер штрих-кодов",
+          "guarantee": {
+            "start": "2022-11-30 07:47:36",
+            "end": "2024-11-29 07:47:36"
+          },
+          "price": [
+            {
+              "value": 343.15,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 37765.29,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 7,
+          "date": "2022-11-30 07:47:36",
+          "responsible": "Сидоров С.С."
+        },
+        {
+          "id": 1006,
+          "serialNumber": "SN26883080",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/2881235/pexels-photo-2881235.jpeg",
+          "title": "Samsung SSD 980 PRO",
+          "type": "Storage",
+          "specification": "1TB NVMe SSD",
+          "guarantee": {
+            "start": "2023-08-04 09:55:16",
+            "end": "2026-08-03 09:55:16"
+          },
+          "price": [
+            {
+              "value": 169.25,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 7,
+          "date": "2023-08-04 09:55:16"
+        },
+        {
+          "id": 1007,
+          "serialNumber": "SN29697539",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2023-06-21 17:20:31",
+            "end": "2026-06-20 17:20:31"
+          },
+          "price": [
+            {
+              "value": 1008.97,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 36044.29,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 7,
+          "date": "2023-06-21 17:20:31",
+          "responsible": "Кузнецова А.А."
+        },
+        {
+          "id": 1008,
+          "serialNumber": "SN90595933",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2024-09-05 16:02:20",
+            "end": "2027-09-05 16:02:20"
+          },
+          "price": [
+            {
+              "value": 190.74,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 18657.2,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 7,
+          "date": "2024-09-05 16:02:20"
+        },
+        {
+          "id": 1009,
+          "serialNumber": null,
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1585079542156-2755d9c121e2",
+          "title": "Zebra DS2208",
+          "type": "Scanners",
+          "specification": "Ручной 2D сканер штрих-кодов",
+          "guarantee": {
+            "start": "2022-09-20 14:14:29",
+            "end": "2025-09-19 14:14:29"
+          },
+          "price": [
+            {
+              "value": 697.23,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 7,
+          "date": "2022-09-20 14:14:29",
+          "responsible": "Лебедев Д.Д."
+        },
+        {
+          "id": 1010,
+          "serialNumber": "SN60444813",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2023-11-21 01:24:39",
+            "end": "2025-11-20 01:24:39"
+          },
+          "price": [
+            {
+              "value": 1069.16,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 7,
+          "date": "2023-11-21 01:24:39"
         }
       ]
     },
     {
-      "id": 3,
-      "title": "Order 3",
-      "date": "2017-06-29 12:09:33",
-      "description": "desc",
-      "products": []
+      "id": 8,
+      "title": "Закупка техники для HR-отдела",
+      "date": "2023-05-12 18:21:06",
+      "description": "",
+      "products": [
+        {
+          "id": 1011,
+          "serialNumber": "SN60916328",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2023-12-04 11:29:59",
+            "end": "2024-12-03 11:29:59"
+          },
+          "price": [
+            {
+              "value": 1081.08,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 57219.38,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 8,
+          "date": "2023-12-04 11:29:59",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1012,
+          "serialNumber": "SN73065122",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/2881235/pexels-photo-2881235.jpeg",
+          "title": "Samsung SSD 980 PRO",
+          "type": "Storage",
+          "specification": "1TB NVMe SSD",
+          "guarantee": {
+            "start": "2023-03-06 16:38:38",
+            "end": "2026-03-05 16:38:38"
+          },
+          "price": [
+            {
+              "value": 1475.4,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 6909.63,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 8,
+          "date": "2023-03-06 16:38:38"
+        },
+        {
+          "id": 1013,
+          "serialNumber": "SN55130016",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2023-01-10 16:44:50",
+            "end": "2025-01-09 16:44:50"
+          },
+          "price": [
+            {
+              "value": 1081.65,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 17119.01,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 8,
+          "date": "2023-01-10 16:44:50",
+          "responsible": "Петров П.П."
+        },
+        {
+          "id": 1014,
+          "serialNumber": "SN99797303",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2023-06-19 18:46:17",
+            "end": "2026-06-18 18:46:17"
+          },
+          "price": [
+            {
+              "value": 269.01,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 9000.28,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 8,
+          "date": "2023-06-19 18:46:17"
+        },
+        {
+          "id": 1015,
+          "serialNumber": "SN64301342",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Microsoft Surface Pro 9",
+          "type": "Tablets",
+          "specification": "13\" планшет с клавиатурой",
+          "guarantee": {
+            "start": "2022-08-07 05:39:53",
+            "end": "2024-08-06 05:39:53"
+          },
+          "price": [
+            {
+              "value": 147.28,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 52377.92,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 8,
+          "date": "2022-08-07 05:39:53",
+          "responsible": "Сидоров С.С."
+        },
+        {
+          "id": 1016,
+          "serialNumber": "SN44044459",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2023-07-13 10:07:16",
+            "end": "2026-07-12 10:07:16"
+          },
+          "price": [
+            {
+              "value": 345.98,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 8,
+          "date": "2023-07-13 10:07:16"
+        },
+        {
+          "id": 1017,
+          "serialNumber": null,
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2022-07-12 15:44:20",
+            "end": "2023-07-12 15:44:20"
+          },
+          "price": [
+            {
+              "value": 936.53,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 30214.28,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 8,
+          "date": "2022-07-12 15:44:20",
+          "responsible": "Кузнецова А.А."
+        },
+        {
+          "id": 1018,
+          "serialNumber": "SN33628555",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7",
+          "title": "Logitech C920",
+          "type": "Video",
+          "specification": "HD веб-камера",
+          "guarantee": {
+            "start": "2023-11-28 14:55:29",
+            "end": "2025-11-27 14:55:29"
+          },
+          "price": [
+            {
+              "value": 1218.53,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 42082.11,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 8,
+          "date": "2023-11-28 14:55:29"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Оборудование для мобильной лаборатории",
+      "date": "2023-08-11 06:31:21",
+      "description": "Описание к заказу 9",
+      "products": [
+        {
+          "id": 1019,
+          "serialNumber": null,
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2023-11-08 11:25:39",
+            "end": "2024-11-07 11:25:39"
+          },
+          "price": [
+            {
+              "value": 726.56,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 59235.82,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2023-11-08 11:25:39",
+          "responsible": "Лебедев Д.Д."
+        },
+        {
+          "id": 1020,
+          "serialNumber": "SN60740515",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2023-02-05 23:01:08",
+            "end": "2024-02-05 23:01:08"
+          },
+          "price": [
+            {
+              "value": 296.48,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 56341.49,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2023-02-05 23:01:08"
+        },
+        {
+          "id": 1021,
+          "serialNumber": "SN56577734",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2023-10-18 14:36:29",
+            "end": "2026-10-17 14:36:29"
+          },
+          "price": [
+            {
+              "value": 430.37,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 46887.93,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2023-10-18 14:36:29",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1022,
+          "serialNumber": "SN67843449",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2023-06-22 12:50:00",
+            "end": "2024-06-21 12:50:00"
+          },
+          "price": [
+            {
+              "value": 706.07,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 52220.54,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2023-06-22 12:50:00"
+        },
+        {
+          "id": 1023,
+          "serialNumber": "SN46301121",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2024-09-12 09:39:53",
+            "end": "2027-09-12 09:39:53"
+          },
+          "price": [
+            {
+              "value": 119.86,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 45442.79,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2024-09-12 09:39:53",
+          "responsible": "Петров П.П."
+        },
+        {
+          "id": 1024,
+          "serialNumber": "SN43282339",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2023-08-20 09:19:15",
+            "end": "2024-08-19 09:19:15"
+          },
+          "price": [
+            {
+              "value": 787.78,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 57097.25,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2023-08-20 09:19:15"
+        },
+        {
+          "id": 1025,
+          "serialNumber": "SN34824157",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2022-12-12 06:47:09",
+            "end": "2023-12-12 06:47:09"
+          },
+          "price": [
+            {
+              "value": 1244.0,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2022-12-12 06:47:09",
+          "responsible": "Сидоров С.С."
+        },
+        {
+          "id": 1026,
+          "serialNumber": "SN25584760",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2023-03-12 15:05:27",
+            "end": "2026-03-11 15:05:27"
+          },
+          "price": [
+            {
+              "value": 628.73,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 54908.39,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2023-03-12 15:05:27"
+        },
+        {
+          "id": 1027,
+          "serialNumber": null,
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/2881235/pexels-photo-2881235.jpeg",
+          "title": "Samsung SSD 980 PRO",
+          "type": "Storage",
+          "specification": "1TB NVMe SSD",
+          "guarantee": {
+            "start": "2024-05-07 07:23:43",
+            "end": "2027-05-07 07:23:43"
+          },
+          "price": [
+            {
+              "value": 1134.72,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 37003.65,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2024-05-07 07:23:43",
+          "responsible": "Кузнецова А.А."
+        },
+        {
+          "id": 1028,
+          "serialNumber": "SN47185634",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2023-01-20 06:20:10",
+            "end": "2024-01-20 06:20:10"
+          },
+          "price": [
+            {
+              "value": 696.89,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 38183.23,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 9,
+          "date": "2023-01-20 06:20:10"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Замена серверной инфраструктуры",
+      "date": "2023-07-20 14:19:31",
+      "description": "",
+      "products": [
+        {
+          "id": 1029,
+          "serialNumber": "SN68670034",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2025-03-10 02:22:26",
+            "end": "2027-03-10 02:22:26"
+          },
+          "price": [
+            {
+              "value": 359.21,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 17967.61,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 10,
+          "date": "2025-03-10 02:22:26",
+          "responsible": "Лебедев Д.Д."
+        },
+        {
+          "id": 1030,
+          "serialNumber": "SN86145753",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1585079542156-2755d9c121e2",
+          "title": "Zebra DS2208",
+          "type": "Scanners",
+          "specification": "Ручной 2D сканер штрих-кодов",
+          "guarantee": {
+            "start": "2023-03-22 01:08:07",
+            "end": "2025-03-21 01:08:07"
+          },
+          "price": [
+            {
+              "value": 501.51,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 10,
+          "date": "2023-03-22 01:08:07"
+        },
+        {
+          "id": 1031,
+          "serialNumber": "SN57976349",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+          "title": "BenQ PD3220U",
+          "type": "Monitors",
+          "specification": "32\" 4K монитор",
+          "guarantee": {
+            "start": "2024-02-14 00:07:50",
+            "end": "2027-02-13 00:07:50"
+          },
+          "price": [
+            {
+              "value": 731.0,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 39187.48,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 10,
+          "date": "2024-02-14 00:07:50",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1032,
+          "serialNumber": "SN57647657",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7",
+          "title": "Logitech C920",
+          "type": "Video",
+          "specification": "HD веб-камера",
+          "guarantee": {
+            "start": "2023-09-08 19:23:03",
+            "end": "2024-09-07 19:23:03"
+          },
+          "price": [
+            {
+              "value": 656.27,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 43890.77,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 10,
+          "date": "2023-09-08 19:23:03"
+        },
+        {
+          "id": 1033,
+          "serialNumber": "SN49948983",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2024-05-10 02:37:51",
+            "end": "2027-05-10 02:37:51"
+          },
+          "price": [
+            {
+              "value": 197.79,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 16976.84,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 10,
+          "date": "2024-05-10 02:37:51",
+          "responsible": "Петров П.П."
+        },
+        {
+          "id": 1034,
+          "serialNumber": "SN70235666",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1585079542156-2755d9c121e2",
+          "title": "Zebra DS2208",
+          "type": "Scanners",
+          "specification": "Ручной 2D сканер штрих-кодов",
+          "guarantee": {
+            "start": "2024-02-06 10:17:33",
+            "end": "2026-02-05 10:17:33"
+          },
+          "price": [
+            {
+              "value": 105.31,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 48721.47,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 10,
+          "date": "2024-02-06 10:17:33"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Новые мониторы для команды тестировщиков",
+      "date": "2023-07-16 21:37:47",
+      "description": "Описание к заказу 11",
+      "products": [
+        {
+          "id": 1035,
+          "serialNumber": "SN69016955",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2023-11-13 05:39:50",
+            "end": "2026-11-12 05:39:50"
+          },
+          "price": [
+            {
+              "value": 1087.65,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 31174.8,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2023-11-13 05:39:50",
+          "responsible": "Сидоров С.С."
+        },
+        {
+          "id": 1036,
+          "serialNumber": "SN72750182",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/2881235/pexels-photo-2881235.jpeg",
+          "title": "Samsung SSD 980 PRO",
+          "type": "Storage",
+          "specification": "1TB NVMe SSD",
+          "guarantee": {
+            "start": "2022-11-08 03:43:45",
+            "end": "2025-11-07 03:43:45"
+          },
+          "price": [
+            {
+              "value": 684.54,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 44114.9,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2022-11-08 03:43:45"
+        },
+        {
+          "id": 1037,
+          "serialNumber": "SN38288635",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2024-07-22 06:22:58",
+            "end": "2027-07-22 06:22:58"
+          },
+          "price": [
+            {
+              "value": 893.77,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2024-07-22 06:22:58",
+          "responsible": "Кузнецова А.А."
+        },
+        {
+          "id": 1038,
+          "serialNumber": "SN88180560",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2023-04-19 12:16:39",
+            "end": "2026-04-18 12:16:39"
+          },
+          "price": [
+            {
+              "value": 1078.37,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 16185.4,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2023-04-19 12:16:39"
+        },
+        {
+          "id": 1039,
+          "serialNumber": "SN82102364",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2025-02-08 12:48:51",
+            "end": "2028-02-08 12:48:51"
+          },
+          "price": [
+            {
+              "value": 1427.68,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 25708.64,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2025-02-08 12:48:51",
+          "responsible": "Лебедев Д.Д."
+        },
+        {
+          "id": 1040,
+          "serialNumber": null,
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2022-08-03 16:10:41",
+            "end": "2023-08-03 16:10:41"
+          },
+          "price": [
+            {
+              "value": 1425.04,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 46636.76,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2022-08-03 16:10:41"
+        },
+        {
+          "id": 1041,
+          "serialNumber": null,
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Microsoft Surface Pro 9",
+          "type": "Tablets",
+          "specification": "13\" планшет с клавиатурой",
+          "guarantee": {
+            "start": "2024-07-11 13:35:19",
+            "end": "2026-07-11 13:35:19"
+          },
+          "price": [
+            {
+              "value": 676.27,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 57987.0,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2024-07-11 13:35:19",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1042,
+          "serialNumber": "SN43244727",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2022-08-01 21:46:37",
+            "end": "2023-08-01 21:46:37"
+          },
+          "price": [
+            {
+              "value": 293.26,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 24337.89,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2022-08-01 21:46:37"
+        },
+        {
+          "id": 1043,
+          "serialNumber": "SN59508523",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7",
+          "title": "Logitech C920",
+          "type": "Video",
+          "specification": "HD веб-камера",
+          "guarantee": {
+            "start": "2024-02-08 00:29:39",
+            "end": "2027-02-07 00:29:39"
+          },
+          "price": [
+            {
+              "value": 802.29,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 22768.18,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2024-02-08 00:29:39",
+          "responsible": "Петров П.П."
+        },
+        {
+          "id": 1044,
+          "serialNumber": "SN42923350",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2024-03-24 07:52:05",
+            "end": "2027-03-24 07:52:05"
+          },
+          "price": [
+            {
+              "value": 1257.16,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 16699.43,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 11,
+          "date": "2024-03-24 07:52:05"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Мобильные станции для выездной поддержки",
+      "date": "2023-03-09 01:04:07",
+      "description": "Описание к заказу 12",
+      "products": [
+        {
+          "id": 1045,
+          "serialNumber": "SN96572918",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2022-12-06 14:23:30",
+            "end": "2024-12-05 14:23:30"
+          },
+          "price": [
+            {
+              "value": 1014.86,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 12,
+          "date": "2022-12-06 14:23:30",
+          "responsible": "Сидоров С.С."
+        },
+        {
+          "id": 1046,
+          "serialNumber": "SN20485575",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2022-12-24 01:59:49",
+            "end": "2024-12-23 01:59:49"
+          },
+          "price": [
+            {
+              "value": 622.06,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 38728.63,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 12,
+          "date": "2022-12-24 01:59:49"
+        },
+        {
+          "id": 1047,
+          "serialNumber": "SN71317537",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2023-03-17 11:33:47",
+            "end": "2024-03-16 11:33:47"
+          },
+          "price": [
+            {
+              "value": 817.89,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 22051.44,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 12,
+          "date": "2023-03-17 11:33:47",
+          "responsible": "Кузнецова А.А."
+        },
+        {
+          "id": 1048,
+          "serialNumber": "SN42096221",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7",
+          "title": "Logitech C920",
+          "type": "Video",
+          "specification": "HD веб-камера",
+          "guarantee": {
+            "start": "2024-08-31 04:25:24",
+            "end": "2027-08-31 04:25:24"
+          },
+          "price": [
+            {
+              "value": 621.7,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 44285.3,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 12,
+          "date": "2024-08-31 04:25:24"
+        },
+        {
+          "id": 1049,
+          "serialNumber": "SN10444113",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2024-06-10 16:24:07",
+            "end": "2025-06-10 16:24:07"
+          },
+          "price": [
+            {
+              "value": 1078.73,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 32490.52,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 12,
+          "date": "2024-06-10 16:24:07",
+          "responsible": "Лебедев Д.Д."
+        },
+        {
+          "id": 1050,
+          "serialNumber": "SN94877578",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2025-03-11 03:23:13",
+            "end": "2028-03-10 03:23:13"
+          },
+          "price": [
+            {
+              "value": 1019.25,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 43319.48,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 12,
+          "date": "2025-03-11 03:23:13"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Обновление лицензий ПО",
+      "date": "2023-07-25 08:24:18",
+      "description": "Описание к заказу 13",
+      "products": [
+        {
+          "id": 1051,
+          "serialNumber": "SN70791122",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2024-05-10 02:48:06",
+            "end": "2025-05-10 02:48:06"
+          },
+          "price": [
+            {
+              "value": 273.07,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 13,
+          "date": "2024-05-10 02:48:06",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1052,
+          "serialNumber": "SN73921610",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2023-03-23 18:32:24",
+            "end": "2025-03-22 18:32:24"
+          },
+          "price": [
+            {
+              "value": 391.82,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 16029.01,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 13,
+          "date": "2023-03-23 18:32:24"
+        },
+        {
+          "id": 1053,
+          "serialNumber": "SN44454778",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2023-11-11 05:44:13",
+            "end": "2025-11-10 05:44:13"
+          },
+          "price": [
+            {
+              "value": 1068.82,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 33266.59,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 13,
+          "date": "2023-11-11 05:44:13",
+          "responsible": "Петров П.П."
+        },
+        {
+          "id": 1054,
+          "serialNumber": "SN70833746",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2023-04-07 23:49:19",
+            "end": "2026-04-06 23:49:19"
+          },
+          "price": [
+            {
+              "value": 1426.64,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 27240.46,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 13,
+          "date": "2023-04-07 23:49:19"
+        },
+        {
+          "id": 1055,
+          "serialNumber": "SN60265356",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2023-10-24 08:09:32",
+            "end": "2026-10-23 08:09:32"
+          },
+          "price": [
+            {
+              "value": 1213.66,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 44824.84,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 13,
+          "date": "2023-10-24 08:09:32",
+          "responsible": "Сидоров С.С."
+        },
+        {
+          "id": 1056,
+          "serialNumber": "SN99634501",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/2881235/pexels-photo-2881235.jpeg",
+          "title": "Samsung SSD 980 PRO",
+          "type": "Storage",
+          "specification": "1TB NVMe SSD",
+          "guarantee": {
+            "start": "2023-11-19 08:46:29",
+            "end": "2025-11-18 08:46:29"
+          },
+          "price": [
+            {
+              "value": 219.91,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 9401.52,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 13,
+          "date": "2023-11-19 08:46:29"
+        },
+        {
+          "id": 1057,
+          "serialNumber": null,
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2022-09-29 18:15:49",
+            "end": "2023-09-29 18:15:49"
+          },
+          "price": [
+            {
+              "value": 1016.05,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 37362.61,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 13,
+          "date": "2022-09-29 18:15:49",
+          "responsible": "Кузнецова А.А."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Офисная мебель",
+      "date": "2023-09-12 15:27:17",
+      "description": "Описание к заказу 14",
+      "products": [
+        {
+          "id": 1058,
+          "serialNumber": "SN38872728",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2023-04-26 15:28:39",
+            "end": "2026-04-25 15:28:39"
+          },
+          "price": [
+            {
+              "value": 1024.55,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 25202.74,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 14,
+          "date": "2023-04-26 15:28:39",
+          "responsible": "Лебедев Д.Д."
+        },
+        {
+          "id": 1059,
+          "serialNumber": "SN70113968",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Microsoft Surface Pro 9",
+          "type": "Tablets",
+          "specification": "13\" планшет с клавиатурой",
+          "guarantee": {
+            "start": "2022-10-21 08:58:12",
+            "end": "2023-10-21 08:58:12"
+          },
+          "price": [
+            {
+              "value": 1322.06,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 14,
+          "date": "2022-10-21 08:58:12"
+        },
+        {
+          "id": 1060,
+          "serialNumber": null,
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2023-06-19 04:50:20",
+            "end": "2026-06-18 04:50:20"
+          },
+          "price": [
+            {
+              "value": 828.21,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 49471.37,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 14,
+          "date": "2023-06-19 04:50:20",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1061,
+          "serialNumber": "SN56558498",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+          "title": "BenQ PD3220U",
+          "type": "Monitors",
+          "specification": "32\" 4K монитор",
+          "guarantee": {
+            "start": "2023-07-09 16:07:55",
+            "end": "2026-07-08 16:07:55"
+          },
+          "price": [
+            {
+              "value": 1131.45,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 40388.53,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 14,
+          "date": "2023-07-09 16:07:55"
+        },
+        {
+          "id": 1062,
+          "serialNumber": "SN57172823",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2024-12-20 21:50:02",
+            "end": "2025-12-20 21:50:02"
+          },
+          "price": [
+            {
+              "value": 167.08,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 54927.69,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 14,
+          "date": "2024-12-20 21:50:02",
+          "responsible": "Петров П.П."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Закупка оргтехники",
+      "date": "2024-03-18 20:50:24",
+      "description": "",
+      "products": [
+        {
+          "id": 1063,
+          "serialNumber": "SN49028622",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1585079542156-2755d9c121e2",
+          "title": "Zebra DS2208",
+          "type": "Scanners",
+          "specification": "Ручной 2D сканер штрих-кодов",
+          "guarantee": {
+            "start": "2023-12-07 19:41:06",
+            "end": "2024-12-06 19:41:06"
+          },
+          "price": [
+            {
+              "value": 367.72,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2023-12-07 19:41:06",
+          "responsible": "Сидоров С.С."
+        },
+        {
+          "id": 1064,
+          "serialNumber": "SN57392305",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+          "title": "BenQ PD3220U",
+          "type": "Monitors",
+          "specification": "32\" 4K монитор",
+          "guarantee": {
+            "start": "2024-04-20 07:37:11",
+            "end": "2025-04-20 07:37:11"
+          },
+          "price": [
+            {
+              "value": 829.76,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 58579.05,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2024-04-20 07:37:11"
+        },
+        {
+          "id": 1065,
+          "serialNumber": "SN10650787",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+          "title": "BenQ PD3220U",
+          "type": "Monitors",
+          "specification": "32\" 4K монитор",
+          "guarantee": {
+            "start": "2023-04-20 10:16:02",
+            "end": "2026-04-19 10:16:02"
+          },
+          "price": [
+            {
+              "value": 1040.47,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 30120.86,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2023-04-20 10:16:02",
+          "responsible": "Кузнецова А.А."
+        },
+        {
+          "id": 1066,
+          "serialNumber": "SN44323365",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/2881235/pexels-photo-2881235.jpeg",
+          "title": "Samsung SSD 980 PRO",
+          "type": "Storage",
+          "specification": "1TB NVMe SSD",
+          "guarantee": {
+            "start": "2024-04-05 03:29:37",
+            "end": "2026-04-05 03:29:37"
+          },
+          "price": [
+            {
+              "value": 1147.74,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 45774.91,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2024-04-05 03:29:37"
+        },
+        {
+          "id": 1067,
+          "serialNumber": "SN75200664",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2024-05-30 10:21:41",
+            "end": "2025-05-30 10:21:41"
+          },
+          "price": [
+            {
+              "value": 115.96,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 19241.8,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2024-05-30 10:21:41",
+          "responsible": "Лебедев Д.Д."
+        },
+        {
+          "id": 1068,
+          "serialNumber": "SN39844784",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2023-10-13 04:35:36",
+            "end": "2025-10-12 04:35:36"
+          },
+          "price": [
+            {
+              "value": 888.25,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 59602.85,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2023-10-13 04:35:36"
+        },
+        {
+          "id": 1069,
+          "serialNumber": "SN79041234",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2023-05-26 11:33:15",
+            "end": "2025-05-25 11:33:15"
+          },
+          "price": [
+            {
+              "value": 139.82,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2023-05-26 11:33:15",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1070,
+          "serialNumber": null,
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Wacom Intuos Pro",
+          "type": "Tablets",
+          "specification": "Планшет для рисования",
+          "guarantee": {
+            "start": "2023-03-16 07:50:36",
+            "end": "2025-03-15 07:50:36"
+          },
+          "price": [
+            {
+              "value": 442.51,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2023-03-16 07:50:36"
+        },
+        {
+          "id": 1071,
+          "serialNumber": null,
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7",
+          "title": "Logitech C920",
+          "type": "Video",
+          "specification": "HD веб-камера",
+          "guarantee": {
+            "start": "2023-12-18 21:52:18",
+            "end": "2025-12-17 21:52:18"
+          },
+          "price": [
+            {
+              "value": 107.47,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 15,
+          "date": "2023-12-18 21:52:18",
+          "responsible": "Петров П.П."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Резервное оборудование",
+      "date": "2024-10-23 06:18:30",
+      "description": "Описание к заказу 16",
+      "products": [
+        {
+          "id": 1072,
+          "serialNumber": "SN65683698",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2023-10-29 00:39:21",
+            "end": "2026-10-28 00:39:21"
+          },
+          "price": [
+            {
+              "value": 1132.3,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 56953.75,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2023-10-29 00:39:21",
+          "responsible": "Сидоров С.С."
+        },
+        {
+          "id": 1073,
+          "serialNumber": "SN61969744",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+          "title": "BenQ PD3220U",
+          "type": "Monitors",
+          "specification": "32\" 4K монитор",
+          "guarantee": {
+            "start": "2023-09-14 18:35:22",
+            "end": "2024-09-13 18:35:22"
+          },
+          "price": [
+            {
+              "value": 1372.58,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 54273.36,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2023-09-14 18:35:22"
+        },
+        {
+          "id": 1074,
+          "serialNumber": "SN51051706",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1581091870620-b7c13d50b784",
+          "title": "TP-Link TL-SG108",
+          "type": "Network",
+          "specification": "8-портовый гигабитный коммутатор",
+          "guarantee": {
+            "start": "2023-01-28 17:34:02",
+            "end": "2024-01-28 17:34:02"
+          },
+          "price": [
+            {
+              "value": 361.92,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 37676.95,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2023-01-28 17:34:02",
+          "responsible": "Кузнецова А.А."
+        },
+        {
+          "id": 1075,
+          "serialNumber": "SN95377082",
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2022-11-17 07:38:47",
+            "end": "2025-11-16 07:38:47"
+          },
+          "price": [
+            {
+              "value": 1402.24,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 51586.01,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2022-11-17 07:38:47"
+        },
+        {
+          "id": 1076,
+          "serialNumber": "SN36825373",
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/3945684/pexels-photo-3945684.jpeg",
+          "title": "Epson EcoTank L3250",
+          "type": "Printers",
+          "specification": "Цветной принтер",
+          "guarantee": {
+            "start": "2022-10-28 21:35:19",
+            "end": "2025-10-27 21:35:19"
+          },
+          "price": [
+            {
+              "value": 356.66,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 43477.63,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2022-10-28 21:35:19",
+          "responsible": "Лебедев Д.Д."
+        },
+        {
+          "id": 1077,
+          "serialNumber": "SN86576492",
+          "isNew": 1,
+          "photo": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+          "title": "Lenovo ThinkPad X1 Carbon",
+          "type": "Laptops",
+          "specification": "Intel i7, 16GB, 512GB SSD",
+          "guarantee": {
+            "start": "2023-07-09 16:07:56",
+            "end": "2025-07-08 16:07:56"
+          },
+          "price": [
+            {
+              "value": 1075.28,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 55204.91,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2023-07-09 16:07:56"
+        },
+        {
+          "id": 1078,
+          "serialNumber": null,
+          "isNew": 0,
+          "photo": "https://images.pexels.com/photos/4491456/pexels-photo-4491456.jpeg",
+          "title": "Microsoft Surface Pro 9",
+          "type": "Tablets",
+          "specification": "13\" планшет с клавиатурой",
+          "guarantee": {
+            "start": "2024-02-25 04:53:07",
+            "end": "2025-02-24 04:53:07"
+          },
+          "price": [
+            {
+              "value": 100.27,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 39468.02,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2024-02-25 04:53:07",
+          "responsible": "Иванов И.И."
+        },
+        {
+          "id": 1079,
+          "serialNumber": "SN58096753",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+          "title": "Apple Magic Mouse",
+          "type": "Mice",
+          "specification": "Bluetooth мышь",
+          "guarantee": {
+            "start": "2025-03-02 10:28:07",
+            "end": "2027-03-02 10:28:07"
+          },
+          "price": [
+            {
+              "value": 324.86,
+              "symbol": "USD",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2025-03-02 10:28:07"
+        },
+        {
+          "id": 1080,
+          "serialNumber": null,
+          "isNew": 0,
+          "photo": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7",
+          "title": "Logitech C920",
+          "type": "Video",
+          "specification": "HD веб-камера",
+          "guarantee": {
+            "start": "2023-05-10 10:06:21",
+            "end": "2024-05-09 10:06:21"
+          },
+          "price": [
+            {
+              "value": 889.6,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 2121.99,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2023-05-10 10:06:21",
+          "responsible": "Петров П.П."
+        },
+        {
+          "id": 1081,
+          "serialNumber": "SN52552821",
+          "isNew": 1,
+          "photo": "https://images.pexels.com/photos/2881235/pexels-photo-2881235.jpeg",
+          "title": "Samsung SSD 980 PRO",
+          "type": "Storage",
+          "specification": "1TB NVMe SSD",
+          "guarantee": {
+            "start": "2022-10-27 07:30:34",
+            "end": "2025-10-26 07:30:34"
+          },
+          "price": [
+            {
+              "value": 519.08,
+              "symbol": "USD",
+              "isDefault": 0
+            },
+            {
+              "value": 40475.02,
+              "symbol": "UAH",
+              "isDefault": 1
+            }
+          ],
+          "order": 16,
+          "date": "2022-10-27 07:30:34"
+        }
+      ]
     }
   ]
 }

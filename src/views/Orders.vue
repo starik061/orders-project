@@ -1,11 +1,13 @@
 <template>
   <div>
-    123
+    Orders
   </div>
 </template>
 
-<script setup>
+<script>
+export default {
 
+}
 </script>
 
 <style lang="scss" scoped></style>

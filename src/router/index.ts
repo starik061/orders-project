@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import NavLayout from '@/layouts/NavLayout.vue'
 import DevelopmentView from '@/views/DevelopmentView.vue'
+import Orders from '@/views/Orders.vue'
+import Products from '@/views/Products.vue'
 const routes = [
   {
     path: '/',
@@ -8,8 +10,8 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Receiving',
-        component: DevelopmentView
+        name: 'Orders',
+        component: Orders
       },
       {
         path: 'groups',
@@ -19,7 +21,7 @@ const routes = [
       {
         path: 'products',
         name: 'Products',
-        component: DevelopmentView
+        component: Products
       },
       {
         path: 'users',

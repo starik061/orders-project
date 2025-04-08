@@ -1,6 +1,10 @@
-# orders-project
+<div style="margin-top:0; padding-top:0" align="center">
+<h1 style="margin-top:0">Orders & Products Demo App</h1>
+  
+<img src="./public/img/readme.jpg" width="550" alt="app screen" />
 
-This template should help get you started developing with Vue 3 in Vite.
+<p>Used technology stack: <b>Vue 3 (Composition API), Vue Router, Pinia, SCSS, Vite, ES Lint and Prettier settings, Docker, WebSocket</b></p>
+</div>
 
 ## Recommended IDE Setup
 

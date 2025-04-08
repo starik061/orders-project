@@ -17,9 +17,14 @@
         type="text"
         placeholder="поиск"
       />
-
       <div class="date-time-container">
-        <p>{{ getWeekdayName(new Date()) }}</p>
+        <p class="day-session-wrapper">
+          <span>{{ getWeekdayName(new Date()) }}</span>
+          <span
+            >Актив. сессий: <span style="font-weight: bold">{{ activeSessions }}</span></span
+          >
+        </p>
+
         <p class="day-time-wrapper">
           <span class="date">{{ getDate(new Date()) }}</span>
           <span class="time-container">
@@ -35,8 +40,11 @@
 <script setup>
   import { ref, onMounted, onUnmounted } from 'vue'
   import IconClock from '@/components/icons/IconClock.vue'
+  import socket from '@/socket'
 
   const currentTime = ref('00:00')
+  const activeSessions = ref(0)
+
   let timeInterval = null
   function getWeekdayName(dateInput) {
     const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
@@ -76,6 +84,12 @@
   }
 
   onMounted(() => {
+    // Получаем количество активных сессий через WebSocket
+    socket.on('activeSessions', (sessions) => {
+      activeSessions.value = sessions
+    })
+    //------------
+
     currentTime.value = getTime(new Date())
 
     timeInterval = setInterval(() => {
@@ -160,7 +174,19 @@
     margin-left: auto;
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   }
+  .day-session-wrapper {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
 
+    @media (max-width: 650px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+  }
   .day-time-wrapper {
     display: inline-flex;
     justify-content: flex-start;

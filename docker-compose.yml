@@ -1,0 +1,12 @@
+services:
+  client:
+    build: ./client
+    ports:
+      - "80:80"  # Проксиим порт 80 для клиента
+    depends_on:
+      - server
+
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"  # Проксиим порт 3000 для сервера

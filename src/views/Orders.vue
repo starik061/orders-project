@@ -56,6 +56,7 @@
   import Modal from '@/components/Modal.vue'
   import { useOrdersStore } from '@/stores/useOrdersStore'
   import { deleteOrder } from '@/api/orders'
+  import { toast } from 'vue3-toastify'
 
   const ordersStore = useOrdersStore()
   const localError = ref(null)
@@ -90,31 +91,29 @@
       if (isDeleting.value) return
       isDeleting.value = true
 
-      // Сначала скрываем модальное окно
       showModal.value = false
 
       if (!selectedItem.value || !selectedItem.value.id) {
-        throw new Error('ID заказа не указан')
+        throw new Error('ID прихода не указан')
       }
 
       const orderId = selectedItem.value.id
       const result = await deleteOrder(orderId)
 
       if (result.success) {
-        // Проверяем, существует ли метод
         if (typeof ordersStore.removeOrderById !== 'function') {
-          throw new Error('Метод удаления заказа не реализован в хранилище')
+          throw new Error('Метод удаления прихода не реализован в хранилище')
         }
 
-        // Вызов метода из store для удаления заказа
         ordersStore.removeOrderById(orderId)
+        toast.success('Приход успешно удален')
       } else {
-        throw new Error(result.message || 'Ошибка при удалении заказа')
+        throw new Error(result.message || 'Ошибка при удалении прихода')
       }
     } catch (error) {
-      console.error('Ошибка при удалении заказа:', error)
+      console.error('Ошибка при удалении прихода:', error)
+      toast.error('Не удалось удалить приход')
     } finally {
-      // Сбрасываем выбранный элемент и флаг удаления
       selectedItem.value = null
       isDeleting.value = false
     }

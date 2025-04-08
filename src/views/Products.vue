@@ -106,7 +106,6 @@
 
   const deleteItem = async () => {
     try {
-      // Сначала скрываем модальное окно
       showModal.value = false
 
       if (!selectedItem.value || !selectedItem.value.id) {
@@ -117,15 +116,15 @@
       const result = await deleteProduct(productId)
 
       if (result.success) {
-        // Вызов метода из store для удаления продукта
         ordersStore.removeProductById(productId)
+        toast.success('Продукт успешно удален')
       } else {
         throw new Error(result.message || 'Ошибка при удалении продукта')
       }
     } catch (error) {
       console.error('Ошибка при удалении продукта:', error)
+      toast.error('Не удалось удалить продукт')
     } finally {
-      // Сбрасываем выбранный элемент
       selectedItem.value = null
     }
   }

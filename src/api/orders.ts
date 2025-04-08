@@ -63,7 +63,7 @@ export async function deleteProduct(
   }
 
   // Имитация задержки сетевого запроса
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 500))
 
   // Симуляция случайного успеха/неудачи (70% успех, 30% ошибка)
   const isSuccess = Math.random() < 0.7
@@ -90,7 +90,7 @@ export async function deleteOrder(
   }
 
   // Имитация задержки сетевого запроса
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 500))
 
   // Симуляция случайного успеха/неудачи (70% успех, 30% ошибка)
   const isSuccess = Math.random() < 0.7

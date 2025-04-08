@@ -27,11 +27,19 @@ export const useOrdersStore = defineStore('orders', () => {
     }))
   }
 
+  function removeOrderById(orderId) {
+    if (!orderId) return
+
+    // Remove the order with the matching ID from the orders array
+    orders.value = orders.value.filter((order) => order.id !== orderId)
+  }
+
   return {
     orders,
     error,
     loadingGlobal,
     fetchOrders,
-    removeProductById
+    removeProductById,
+    removeOrderById
   }
 })

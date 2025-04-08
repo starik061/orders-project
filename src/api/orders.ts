@@ -82,3 +82,30 @@ export async function deleteProduct(
     }
   }
 }
+export async function deleteOrder(
+  orderId: string | number
+): Promise<{ success: boolean; message: string }> {
+  if (!orderId) {
+    throw new Error('ID заказа не указан')
+  }
+
+  // Имитация задержки сетевого запроса
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+
+  // Симуляция случайного успеха/неудачи (70% успех, 30% ошибка)
+  const isSuccess = Math.random() < 0.7
+
+  if (isSuccess) {
+    console.log(`API: Заказ с ID ${orderId} успешно удален`)
+    return {
+      success: true,
+      message: `Заказ успешно удален`
+    }
+  } else {
+    console.error(`API: Ошибка при удалении заказа с ID ${orderId}`)
+    return {
+      success: false,
+      message: 'Не удалось удалить заказ. Пожалуйста, попробуйте позже.'
+    }
+  }
+}

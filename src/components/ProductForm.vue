@@ -124,13 +124,9 @@
               class="delete-button"
               aria-label="Удалить"
               :disabled="isDeleting === product.id"
-              @click="handleDeleteProductBtn(product)"
+              @click="emit('delete-click', product)"
             >
-              <div
-                v-if="isDeleting === product.id"
-                class="button-spinner"
-              ></div>
-              <IconDeleteBin v-else />
+              <IconDeleteBin />
             </button>
           </td>
         </tr>
@@ -143,9 +139,8 @@
   import { ref, onMounted, onUnmounted } from 'vue'
   import ProductPlaceholderImg from '@/assets/img/product-placeholder.webp'
   import IconDeleteBin from './icons/IconDeleteBin.vue'
-  import { deleteProduct } from '@/api/orders'
 
-  const emit = defineEmits(['productDeleted', 'deleteError'])
+  const emit = defineEmits(['delete-click'])
   const isDeleting = ref(null)
   const tableContainer = ref(null)
   const isDragging = ref(false)
@@ -178,7 +173,6 @@
     startX.value = e.pageX - tableContainer.value.offsetLeft
     scrollLeft.value = tableContainer.value.scrollLeft
 
-    // Добавляем курсор-захват при перетаскивании
     document.body.style.cursor = 'grabbing'
 
     // Добавляем класс для предотвращения выделения текста при перетаскивании
@@ -220,7 +214,7 @@
     return priceArray.find((price) => price.symbol === symbol) || null
   }
 
-  // Функция для форматирования даты в формате "DD / MM / YYYY"
+  // Функции форматирования даты
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     const day = date.getDate().toString().padStart(2, '0')
@@ -229,7 +223,6 @@
     return `${day} / ${month} / ${year}`
   }
 
-  // Функции форматирования даты
   const formatShortDate = (dateString) => {
     const date = new Date(dateString)
     const day = date.getDate().toString().padStart(2, '0')
@@ -255,35 +248,9 @@
   const formatShortDateWithoutYear = (dateString) => {
     const date = new Date(dateString)
     const day = date.getDate().toString().padStart(2, '0')
-    const month = (date.getMonth() + 1).toString().padStart(2, '0') // Месяцы начинаются с 0
+    const month = (date.getMonth() + 1).toString().padStart(2, '0')
     return `${day}/${month}`
   }
-  // Функция для обработки удаления продукта
-  const handleDeleteProductBtn = async (product) => {
-    if (!product || !product.id) {
-      console.error('Невозможно удалить продукт без ID')
-      return
-    }
-
-    try {
-      isDeleting.value = product.id
-
-      // Вызываем API для удаления продукта
-      const result = await deleteProduct(product.id)
-
-      if (result.success) {
-        emit('productDeleted', product.id)
-      } else {
-        throw new Error(result.message || 'Ошибка при удалении продукта')
-      }
-    } catch (error) {
-      console.error('Ошибка при удалении продукта:', error)
-      emit('deleteError', { productId: product.id, error: error.message || String(error) })
-    } finally {
-      isDeleting.value = null
-    }
-  }
-
   onMounted(() => {
     window.addEventListener('mousemove', doDrag)
     window.addEventListener('mouseup', stopDrag)
@@ -560,16 +527,7 @@
       }
 
       &:hover:not(:disabled) svg {
-        fill: #ff5252;
-      }
-
-      .button-spinner {
-        width: 18px;
-        height: 18px;
-        border: 2px solid rgba(0, 0, 0, 0.1);
-        border-radius: 50%;
-        border-left-color: #666;
-        animation: spin 1s linear infinite;
+        fill: var(--color-main-red);
       }
     }
   }

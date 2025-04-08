@@ -13,7 +13,6 @@ export const useOrdersStore = defineStore('orders', () => {
     try {
       orders.value = await fetchOrdersFromApi()
     } catch (err) {
-      console.log('🚀 err:', err)
       error.value = err.message || 'Неизвестная ошибка'
     } finally {
       loadingGlobal.value = false
@@ -30,7 +29,6 @@ export const useOrdersStore = defineStore('orders', () => {
   function removeOrderById(orderId) {
     if (!orderId) return
 
-    // Remove the order with the matching ID from the orders array
     orders.value = orders.value.filter((order) => order.id !== orderId)
   }
 

@@ -73,14 +73,9 @@
             <button
               class="delete-button"
               aria-label="Удалить"
-              :disabled="isDeleting === order.id"
-              @click="handleDeleteOrderBtn(order)"
+              @click="emit('delete-click', order)"
             >
-              <div
-                v-if="isDeleting === order.id"
-                class="button-spinner"
-              ></div>
-              <IconDeleteBin v-else />
+              <IconDeleteBin />
             </button>
           </td>
         </tr>
@@ -93,10 +88,9 @@
   import { ref, onMounted, onUnmounted } from 'vue'
   import IconDeleteBin from './icons/IconDeleteBin.vue'
   import IconProductList from './icons/IconProductList.vue'
-  import { deleteOrder } from '@/api/orders'
 
-  const emit = defineEmits(['orderDeleted', 'deleteError'])
-  const isDeleting = ref(null)
+  const emit = defineEmits(['delete-click'])
+
   const tableContainer = ref(null)
   const isDragging = ref(false)
   const startX = ref(0)
@@ -124,7 +118,6 @@
     startX.value = e.pageX - tableContainer.value.offsetLeft
     scrollLeft.value = tableContainer.value.scrollLeft
 
-    // Добавляем курсор-захват при перетаскивании
     document.body.style.cursor = 'grabbing'
 
     // Добавляем класс для предотвращения выделения текста при перетаскивании
@@ -212,33 +205,8 @@
 
     const date = new Date(dateString)
     const day = date.getDate().toString().padStart(2, '0')
-    const month = (date.getMonth() + 1).toString().padStart(2, '0') // Месяцы начинаются с 0
+    const month = (date.getMonth() + 1).toString().padStart(2, '0')
     return `${day}/${month}`
-  }
-
-  // Функция для обработки удаления заказа
-  const handleDeleteOrderBtn = async (order) => {
-    if (!order || !order.id) {
-      console.error('Невозможно удалить заказ без ID')
-      return
-    }
-
-    try {
-      isDeleting.value = order.id
-
-      const result = await deleteOrder(order.id)
-
-      if (result.success) {
-        emit('orderDeleted', order.id)
-      } else {
-        throw new Error(result.message || 'Ошибка при удалении заказа')
-      }
-    } catch (error) {
-      console.error('Ошибка при удалении заказа:', error)
-      emit('deleteError', { orderId: order.id, error: error.message || String(error) })
-    } finally {
-      isDeleting.value = null
-    }
   }
 
   onMounted(() => {
@@ -445,16 +413,7 @@
       }
 
       &:hover:not(:disabled) svg {
-        fill: #ff5252;
-      }
-
-      .button-spinner {
-        width: 18px;
-        height: 18px;
-        border: 2px solid rgba(0, 0, 0, 0.1);
-        border-radius: 50%;
-        border-left-color: #666;
-        animation: spin 1s linear infinite;
+        fill: var(--color-main-red);
       }
     }
   }

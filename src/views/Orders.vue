@@ -27,19 +27,41 @@
       v-else
       :orders="filteredOrders"
       :is-empty-state="!filteredOrders.length"
-      @order-deleted="handleOrderDeleted"
-      @delete-error="handleDeleteError"
+      @delete-click="openDeleteModal"
     />
+
+    <Modal
+      v-if="showModal"
+      :title="'Вы уверены, что хотите удалить этот приход?'"
+      :item="selectedItem"
+      @cancel="showModal = false"
+      @confirm="deleteItem"
+    >
+      <template #default>
+        <div class="item-row">
+          <span class="dot"></span>
+          <div>
+            <div>{{ selectedItem?.title }}</div>
+            <div class="item-sn">№ {{ selectedItem?.number || selectedItem?.id }}</div>
+          </div>
+        </div>
+      </template>
+    </Modal>
   </div>
 </template>
 
 <script setup>
   import { computed, onMounted, ref } from 'vue'
   import OrderForm from '@/components/OrderForm.vue'
+  import Modal from '@/components/Modal.vue'
   import { useOrdersStore } from '@/stores/useOrdersStore'
+  import { deleteOrder } from '@/api/orders'
 
   const ordersStore = useOrdersStore()
   const localError = ref(null)
+  const showModal = ref(false)
+  const selectedItem = ref(null)
+  const isDeleting = ref(false)
 
   const error = computed(() => {
     return ordersStore.error || localError.value
@@ -58,30 +80,44 @@
     await ordersStore.fetchOrders()
   }
 
-  const handleOrderDeleted = async (orderId) => {
-    try {
-      // Проверяем, существует ли метод
-      if (typeof ordersStore.removeOrderById !== 'function') {
-        throw new Error('Метод удаления заказа не реализован в хранилище')
-      }
-
-      // Вызов метода из store для удаления заказа
-      ordersStore.removeOrderById(orderId)
-    } catch (error) {
-      console.error('Error in handleOrderDeleted:', error)
-      handleDeleteError({ orderId, error: error.message || String(error) })
-    }
+  const openDeleteModal = (order) => {
+    selectedItem.value = order
+    showModal.value = true
   }
 
-  const handleDeleteError = ({ orderId, error }) => {
-    localError.value = `Ошибка при удалении заказа: ${error}`
+  const deleteItem = async () => {
+    try {
+      if (isDeleting.value) return
+      isDeleting.value = true
 
-    // Очистить ошибку через некоторое время
-    setTimeout(() => {
-      if (localError.value) {
-        localError.value = null
+      // Сначала скрываем модальное окно
+      showModal.value = false
+
+      if (!selectedItem.value || !selectedItem.value.id) {
+        throw new Error('ID заказа не указан')
       }
-    }, 5000)
+
+      const orderId = selectedItem.value.id
+      const result = await deleteOrder(orderId)
+
+      if (result.success) {
+        // Проверяем, существует ли метод
+        if (typeof ordersStore.removeOrderById !== 'function') {
+          throw new Error('Метод удаления заказа не реализован в хранилище')
+        }
+
+        // Вызов метода из store для удаления заказа
+        ordersStore.removeOrderById(orderId)
+      } else {
+        throw new Error(result.message || 'Ошибка при удалении заказа')
+      }
+    } catch (error) {
+      console.error('Ошибка при удалении заказа:', error)
+    } finally {
+      // Сбрасываем выбранный элемент и флаг удаления
+      selectedItem.value = null
+      isDeleting.value = false
+    }
   }
 
   onMounted(async () => {
@@ -161,6 +197,27 @@
 
     &:hover {
       background-color: #1976d2;
+    }
+  }
+
+  .item-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 12px;
+      background-color: #666;
+    }
+
+    .item-sn {
+      font-size: 0.85em;
+      color: #666;
+      margin-top: 4px;
     }
   }
 

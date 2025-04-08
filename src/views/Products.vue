@@ -27,9 +27,34 @@
       v-else
       :products="allProducts"
       :orders="orders"
-      @product-deleted="handleProductDeleted"
-      @delete-error="handleDeleteError"
+      @delete-click="openDeleteModal"
     />
+
+    <Modal
+      v-if="showModal"
+      :title="'Вы уверены, что хотите удалить этот продукт?'"
+      :item="selectedItem"
+      @cancel="showModal = false"
+      @confirm="deleteItem"
+    >
+      <template #default>
+        <div class="item-row">
+          <span
+            class="dot"
+            :class="{ 'dot-green': selectedItem.isNew === 1, 'dot-gray': selectedItem.isNew === 0 }"
+          ></span>
+          <img
+            :src="selectedItem.photo || require('@/assets/img/product-placeholder.webp')"
+            alt="Продукт"
+            class="item-icon"
+          />
+          <div>
+            <div>{{ selectedItem.title }}</div>
+            <div class="item-sn">SN {{ selectedItem.serialNumber }}</div>
+          </div>
+        </div>
+      </template>
+    </Modal>
   </div>
 </template>
 
@@ -37,9 +62,13 @@
   import { computed, onMounted, ref } from 'vue'
   import ProductForm from '@/components/ProductForm.vue'
   import { useOrdersStore } from '@/stores/useOrdersStore'
+  import Modal from '@/components/Modal.vue'
+  import { deleteProduct } from '@/api/orders'
 
   const ordersStore = useOrdersStore()
   const localError = ref(null)
+  const showModal = ref(false)
+  const selectedItem = ref(null)
 
   const error = computed(() => {
     return ordersStore.error || localError.value
@@ -70,20 +99,35 @@
     await ordersStore.fetchOrders()
   }
 
-  const handleProductDeleted = async (productId) => {
-    // Вызов метода из store для удаления продукта
-    ordersStore.removeProductById(productId)
+  const openDeleteModal = (product) => {
+    selectedItem.value = product
+    showModal.value = true
   }
 
-  const handleDeleteError = ({ productId, error }) => {
-    localError.value = `Ошибка при удалении продукта: ${error}`
+  const deleteItem = async () => {
+    try {
+      // Сначала скрываем модальное окно
+      showModal.value = false
 
-    // Очистить ошибку через некоторое время
-    setTimeout(() => {
-      if (localError.value) {
-        localError.value = null
+      if (!selectedItem.value || !selectedItem.value.id) {
+        throw new Error('ID продукта не указан')
       }
-    }, 5000)
+
+      const productId = selectedItem.value.id
+      const result = await deleteProduct(productId)
+
+      if (result.success) {
+        // Вызов метода из store для удаления продукта
+        ordersStore.removeProductById(productId)
+      } else {
+        throw new Error(result.message || 'Ошибка при удалении продукта')
+      }
+    } catch (error) {
+      console.error('Ошибка при удалении продукта:', error)
+    } finally {
+      // Сбрасываем выбранный элемент
+      selectedItem.value = null
+    }
   }
 
   onMounted(async () => {
@@ -163,6 +207,42 @@
 
     &:hover {
       background-color: #1976d2;
+    }
+  }
+
+  .item-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 12px;
+
+      &-green {
+        background-color: #4caf50;
+      }
+
+      &-gray {
+        background-color: #9e9e9e;
+      }
+    }
+
+    .item-icon {
+      width: 40px;
+      height: 32px;
+      object-fit: cover;
+      margin-right: 12px;
+      border-radius: 4px;
+    }
+
+    .item-sn {
+      font-size: 0.85em;
+      color: #666;
+      margin-top: 4px;
     }
   }
 

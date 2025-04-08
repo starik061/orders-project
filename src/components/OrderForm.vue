@@ -86,8 +86,8 @@
 
 <script setup>
   import { ref, onMounted, onUnmounted } from 'vue'
-  import IconDeleteBin from './icons/IconDeleteBin.vue'
-  import IconProductList from './icons/IconProductList.vue'
+  import IconDeleteBin from '@/components/icons/IconDeleteBin.vue'
+  import IconProductList from '@/components/icons/IconProductList.vue'
 
   const emit = defineEmits(['delete-click'])
 

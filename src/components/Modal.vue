@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-  import IconDeleteBin from './icons/IconDeleteBin.vue'
+  import IconDeleteBin from '@/components/icons/IconDeleteBin.vue'
 
   defineProps({
     title: {
@@ -111,12 +111,12 @@
     border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
+    text-transform: uppercase;
     transition: background 0.2s;
   }
 
   .btn-delete:hover {
     background-color: #fceaea;
-    text-transform: uppercase;
   }
   .forever-red {
     position: relative;

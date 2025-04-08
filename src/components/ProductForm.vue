@@ -138,7 +138,7 @@
 <script setup>
   import { ref, onMounted, onUnmounted } from 'vue'
   import ProductPlaceholderImg from '@/assets/img/product-placeholder.webp'
-  import IconDeleteBin from './icons/IconDeleteBin.vue'
+  import IconDeleteBin from '@/components/icons/IconDeleteBin.vue'
 
   const emit = defineEmits(['delete-click'])
   const isDeleting = ref(null)

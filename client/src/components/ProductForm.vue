@@ -418,7 +418,7 @@
 
     th:nth-child(11),
     td:nth-child(11) {
-      width: 150px;
+      width: 160px;
       text-align: center;
     }
 

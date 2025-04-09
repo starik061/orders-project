@@ -23,12 +23,43 @@
         </button>
       </div>
     </div>
-    <ProductForm
-      v-else
-      :products="allProducts"
-      :orders="orders"
-      @delete-click="openDeleteModal"
-    />
+    <div v-else>
+      <!-- Фильтр по типу продукта -->
+      <div class="filter-container">
+        <label for="type-filter">Фильтр по типу:</label>
+        <select
+          id="type-filter"
+          v-model="selectedType"
+          class="filter-select"
+        >
+          <option value="">Все типы</option>
+          <option
+            v-for="type in availableTypes"
+            :key="type"
+            :value="type"
+          >
+            {{ type }}
+          </option>
+        </select>
+      </div>
+
+      <div
+        v-if="isFilteredListEmpty"
+        class="empty-filtered-state"
+      >
+        <div class="empty-icon">🔍</div>
+        <h3>Ничего не найдено</h3>
+        <p>Нет продуктов выбранного типа</p>
+      </div>
+
+      <ProductForm
+        v-else
+        :products="filteredProducts"
+        :orders="orders"
+        :is-empty-state="allProducts.length === 0"
+        @delete-click="openDeleteModal"
+      />
+    </div>
 
     <Modal
       v-if="showModal"
@@ -69,6 +100,7 @@
   const localError = ref(null)
   const showModal = ref(false)
   const selectedItem = ref(null)
+  const selectedType = ref('')
 
   const error = computed(() => {
     return ordersStore.error || localError.value
@@ -92,6 +124,27 @@
         orderTitle: order.title
       }))
     )
+  })
+
+  const availableTypes = computed(() => {
+    const types = new Set()
+    allProducts.value.forEach((product) => {
+      if (product.type) {
+        types.add(product.type)
+      }
+    })
+    return Array.from(types).sort()
+  })
+
+  const filteredProducts = computed(() => {
+    if (!selectedType.value) {
+      return allProducts.value
+    }
+    return allProducts.value.filter((product) => product.type === selectedType.value)
+  })
+
+  const isFilteredListEmpty = computed(() => {
+    return allProducts.value.length > 0 && filteredProducts.value.length === 0
   })
 
   const retryLoading = async () => {
@@ -144,6 +197,67 @@
     min-height: 300px;
     display: flex;
     flex-direction: column;
+  }
+
+  .filter-container {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: white;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid var(--color-main-grey, #e0e0e0);
+    margin-bottom: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    label {
+      margin-right: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .filter-select {
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--color-main-grey, #e0e0e0);
+      background-color: white;
+      font-size: 14px;
+      min-width: 150px;
+
+      &:focus {
+        outline: none;
+        border-color: #2196f3;
+      }
+    }
+  }
+
+  .empty-filtered-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #9e9e9e;
+    }
+
+    h3 {
+      font-size: 20px;
+      color: #424242;
+      margin: 0 0 10px 0;
+    }
+
+    p {
+      font-size: 16px;
+      color: #757575;
+      margin: 0;
+    }
   }
 
   .spinner-container {

@@ -28,21 +28,55 @@
       :orders="filteredOrders"
       :is-empty-state="!filteredOrders.length"
       @delete-click="openDeleteModal"
+      @delete-product="openDeleteProductModal"
     />
 
+    <!-- Модальное окно для удаления заказа -->
     <Modal
-      v-if="showModal"
+      v-if="showOrderModal"
       :title="'Вы уверены, что хотите удалить этот приход?'"
-      :item="selectedItem"
-      @cancel="showModal = false"
-      @confirm="deleteItem"
+      :item="selectedOrder"
+      @cancel="showOrderModal = false"
+      @confirm="deleteOrder"
     >
       <template #default>
         <div class="item-row">
           <span class="dot"></span>
           <div>
-            <div>{{ selectedItem?.title }}</div>
-            <div class="item-sn">№ {{ selectedItem?.number || selectedItem?.id }}</div>
+            <div>{{ selectedOrder?.title }}</div>
+            <div class="item-sn">№ {{ selectedOrder?.number || selectedOrder?.id }}</div>
+          </div>
+        </div>
+      </template>
+    </Modal>
+
+    <!-- Модальное окно для удаления продукта -->
+    <Modal
+      v-if="showProductModal"
+      :title="'Вы уверены, что хотите удалить этот продукт?'"
+      :item="selectedProduct?.product"
+      @cancel="showProductModal = false"
+      @confirm="deleteProduct"
+    >
+      <template #default>
+        <div class="item-row">
+          <span
+            class="dot"
+            :class="{
+              'dot-green': selectedProduct?.product?.isNew === 1,
+              'dot-gray': selectedProduct?.product?.isNew === 0
+            }"
+          ></span>
+          <img
+            :src="
+              selectedProduct?.product?.photo || require('@/assets/img/product-placeholder.webp')
+            "
+            alt="Продукт"
+            class="item-icon"
+          />
+          <div>
+            <div>{{ selectedProduct?.product?.title }}</div>
+            <div class="item-sn">SN {{ selectedProduct?.product?.serialNumber }}</div>
           </div>
         </div>
       </template>
@@ -55,13 +89,15 @@
   import OrderForm from '@/components/OrderForm.vue'
   import Modal from '@/components/Modal.vue'
   import { useOrdersStore } from '@/stores/useOrdersStore'
-  import { deleteOrder } from '@/api/orders'
+  import { deleteOrder as apiDeleteOrder, deleteProduct as apiDeleteProduct } from '@/api/orders'
   import { toast } from 'vue3-toastify'
 
   const ordersStore = useOrdersStore()
   const localError = ref(null)
-  const showModal = ref(false)
-  const selectedItem = ref(null)
+  const showOrderModal = ref(false)
+  const showProductModal = ref(false)
+  const selectedOrder = ref(null)
+  const selectedProduct = ref(null)
   const isDeleting = ref(false)
 
   const error = computed(() => {
@@ -81,24 +117,32 @@
     await ordersStore.fetchOrders()
   }
 
+  // Открытие модального окна для удаления заказа
   const openDeleteModal = (order) => {
-    selectedItem.value = order
-    showModal.value = true
+    selectedOrder.value = order
+    showOrderModal.value = true
   }
 
-  const deleteItem = async () => {
+  // Открытие модального окна для удаления продукта
+  const openDeleteProductModal = (data) => {
+    selectedProduct.value = data
+    showProductModal.value = true
+  }
+
+  // Удаление заказа
+  const deleteOrder = async () => {
     try {
       if (isDeleting.value) return
       isDeleting.value = true
 
-      showModal.value = false
+      showOrderModal.value = false
 
-      if (!selectedItem.value || !selectedItem.value.id) {
+      if (!selectedOrder.value || !selectedOrder.value.id) {
         throw new Error('ID прихода не указан')
       }
 
-      const orderId = selectedItem.value.id
-      const result = await deleteOrder(orderId)
+      const orderId = selectedOrder.value.id
+      const result = await apiDeleteOrder(orderId)
 
       if (result.success) {
         if (typeof ordersStore.removeOrderById !== 'function') {
@@ -114,7 +158,46 @@
       console.error('Ошибка при удалении прихода:', error)
       toast.error('Не удалось удалить приход')
     } finally {
-      selectedItem.value = null
+      selectedOrder.value = null
+      isDeleting.value = false
+    }
+  }
+
+  // Удаление продукта из заказа
+  const deleteProduct = async () => {
+    try {
+      if (isDeleting.value) return
+      isDeleting.value = true
+
+      showProductModal.value = false
+
+      if (
+        !selectedProduct.value ||
+        !selectedProduct.value.product ||
+        !selectedProduct.value.product.id
+      ) {
+        throw new Error('ID продукта не указан')
+      }
+
+      if (!selectedProduct.value.orderId) {
+        throw new Error('ID заказа не указан')
+      }
+
+      const productId = selectedProduct.value.product.id
+
+      const result = await apiDeleteProduct(productId)
+
+      if (result.success) {
+        ordersStore.removeProductById(productId)
+        toast.success('Продукт успешно удален из заказа')
+      } else {
+        throw new Error(result.message || 'Ошибка при удалении продукта')
+      }
+    } catch (error) {
+      console.error('Ошибка при удалении продукта:', error)
+      toast.error('Не удалось удалить продукт из заказа')
+    } finally {
+      selectedProduct.value = null
       isDeleting.value = false
     }
   }
@@ -133,7 +216,6 @@
     overflow-x: auto;
     min-height: 300px;
     display: flex;
-    flex-direction: column;
   }
 
   .spinner-container {
@@ -211,6 +293,22 @@
       border-radius: 50%;
       margin-right: 12px;
       background-color: #666;
+
+      &-green {
+        background-color: #4caf50;
+      }
+
+      &-gray {
+        background-color: #9e9e9e;
+      }
+    }
+
+    .item-icon {
+      width: 40px;
+      height: 32px;
+      object-fit: cover;
+      margin-right: 12px;
+      border-radius: 4px;
     }
 
     .item-sn {

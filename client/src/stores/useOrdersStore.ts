@@ -6,6 +6,7 @@ export const useOrdersStore = defineStore('orders', () => {
   const orders = ref([])
   const error = ref(null)
   const loadingGlobal = ref(false)
+  const searchQuery = ref('')
 
   async function fetchOrders() {
     loadingGlobal.value = true
@@ -32,12 +33,18 @@ export const useOrdersStore = defineStore('orders', () => {
     orders.value = orders.value.filter((order) => order.id !== orderId)
   }
 
+  function setSearchQuery(query) {
+    searchQuery.value = query
+  }
+
   return {
     orders,
     error,
     loadingGlobal,
+    searchQuery,
     fetchOrders,
     removeProductById,
-    removeOrderById
+    removeOrderById,
+    setSearchQuery
   }
 })

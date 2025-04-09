@@ -24,7 +24,6 @@
       </div>
     </div>
     <div v-else>
-      <!-- Фильтр по типу продукта -->
       <div class="filter-container">
         <label for="type-filter">Фильтр по типу:</label>
         <select
@@ -41,6 +40,19 @@
             {{ type }}
           </option>
         </select>
+
+        <div
+          v-if="ordersStore.searchQuery"
+          class="search-info"
+        >
+          Поиск: "{{ ordersStore.searchQuery }}"
+          <button
+            class="clear-search-btn"
+            @click="clearSearch"
+          >
+            ×
+          </button>
+        </div>
       </div>
 
       <div
@@ -49,7 +61,11 @@
       >
         <div class="empty-icon">🔍</div>
         <h3>Ничего не найдено</h3>
-        <p>Нет продуктов выбранного типа</p>
+        <p v-if="ordersStore.searchQuery">
+          Нет продуктов, соответствующих поисковому запросу "{{ ordersStore.searchQuery }}"
+          <span v-if="selectedType">с типом "{{ selectedType }}"</span>
+        </p>
+        <p v-else-if="selectedType">Нет продуктов с типом "{{ selectedType }}"</p>
       </div>
 
       <ProductForm
@@ -137,15 +153,33 @@
   })
 
   const filteredProducts = computed(() => {
-    if (!selectedType.value) {
-      return allProducts.value
+    let filtered = allProducts.value
+
+    // Фильтрация по типу
+    if (selectedType.value) {
+      filtered = filtered.filter((product) => product.type === selectedType.value)
     }
-    return allProducts.value.filter((product) => product.type === selectedType.value)
+
+    // Фильтрация по модели
+    if (ordersStore.searchQuery) {
+      const query = ordersStore.searchQuery.toLowerCase()
+      filtered = filtered.filter((product) => {
+        // Поиск в заголовке (модель)
+        return product.title && product.title.toLowerCase().includes(query)
+      })
+    }
+
+    return filtered
   })
 
   const isFilteredListEmpty = computed(() => {
     return allProducts.value.length > 0 && filteredProducts.value.length === 0
   })
+
+  // Очистка поиска
+  const clearSearch = () => {
+    ordersStore.setSearchQuery('')
+  }
 
   const retryLoading = async () => {
     localError.value = null
@@ -226,6 +260,36 @@
       &:focus {
         outline: none;
         border-color: #2196f3;
+      }
+    }
+
+    .search-info {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+      padding: 4px 10px;
+      background-color: #e3f2fd;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #1976d2;
+
+      .clear-search-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+        background: none;
+        border: none;
+        border-radius: 50%;
+        font-size: 18px;
+        color: #1976d2;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(25, 118, 210, 0.1);
+        }
       }
     }
   }

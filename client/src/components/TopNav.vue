@@ -13,9 +13,12 @@
       </RouterLink>
 
       <input
+        v-if="isProductsPage"
+        v-model="searchQuery"
         class="search-input"
         type="text"
-        placeholder="поиск"
+        placeholder="Поиск по модели"
+        @input="emitSearch"
       />
       <div class="date-time-container">
         <p class="day-session-wrapper">
@@ -38,12 +41,36 @@
 </template>
 
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue'
+  import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
   import IconClock from '@/components/icons/IconClock.vue'
   import socket from '@/socket'
+  import { useRoute } from 'vue-router'
+  import { useOrdersStore } from '@/stores/useOrdersStore'
 
+  const ordersStore = useOrdersStore()
+
+  const route = useRoute()
   const currentTime = ref('00:00')
   const activeSessions = ref(0)
+  const searchQuery = ref('')
+
+  const isProductsPage = computed(() => {
+    return route.path === '/products'
+  })
+
+  watch(
+    () => route.path,
+    (newPath) => {
+      if (newPath !== '/products') {
+        searchQuery.value = ''
+        ordersStore.setSearchQuery('')
+      }
+    }
+  )
+
+  const emitSearch = () => {
+    ordersStore.setSearchQuery(searchQuery.value)
+  }
 
   let timeInterval = null
   function getWeekdayName(dateInput) {
@@ -95,6 +122,10 @@
     timeInterval = setInterval(() => {
       currentTime.value = getTime(new Date())
     }, 1000)
+
+    if (isProductsPage.value) {
+      searchQuery.value = ordersStore.searchQuery
+    }
   })
 
   onUnmounted(() => {
@@ -158,10 +189,6 @@
       box-shadow:
         0 0 0 2px rgba(91, 157, 217, 0.2),
         inset 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    &::placeholder {
-      text-transform: capitalize;
     }
   }
 

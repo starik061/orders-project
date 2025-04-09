@@ -21,6 +21,7 @@
         <tr>
           <th></th>
           <th>Модель</th>
+          <th>Тип</th>
           <th>Статус</th>
           <th>Гарантия</th>
           <th>Состояние</th>
@@ -55,6 +56,13 @@
                 <div>{{ product.title }}</div>
                 <div class="serial-number">SN {{ product.serialNumber }}</div>
               </div>
+            </div>
+          </td>
+          <td>
+            <div class="status-container">
+              <span>
+                {{ product.type || '—' }}
+              </span>
             </div>
           </td>
           <td>
@@ -363,27 +371,29 @@
 
     th:nth-child(3),
     td:nth-child(3) {
-      width: 80px;
-      min-width: 80px;
+      width: 70px;
+      min-width: 70px;
       text-align: center;
     }
 
     th:nth-child(4),
     td:nth-child(4) {
-      width: 145px;
-      min-width: 145px;
+      width: 80px;
+      min-width: 80px;
       text-align: center;
     }
 
     th:nth-child(5),
     td:nth-child(5) {
-      width: 30px;
+      width: 145px;
+      min-width: 145px;
       text-align: center;
     }
 
     th:nth-child(6),
     td:nth-child(6) {
-      width: 140px;
+      width: 30px;
+      text-align: center;
     }
 
     th:nth-child(7),
@@ -393,16 +403,21 @@
 
     th:nth-child(8),
     td:nth-child(8) {
-      text-align: center;
+      width: 140px;
     }
 
     th:nth-child(9),
     td:nth-child(9) {
-      width: 280px;
+      text-align: center;
     }
 
     th:nth-child(10),
     td:nth-child(10) {
+      width: 280px;
+    }
+
+    th:nth-child(11),
+    td:nth-child(11) {
       width: 150px;
       text-align: center;
     }

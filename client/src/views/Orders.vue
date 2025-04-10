@@ -117,19 +117,16 @@
     await ordersStore.fetchOrders()
   }
 
-  // Открытие модального окна для удаления заказа
   const openDeleteModal = (order) => {
     selectedOrder.value = order
     showOrderModal.value = true
   }
 
-  // Открытие модального окна для удаления продукта
   const openDeleteProductModal = (data) => {
     selectedProduct.value = data
     showProductModal.value = true
   }
 
-  // Удаление заказа
   const deleteOrder = async () => {
     try {
       if (isDeleting.value) return
@@ -163,7 +160,6 @@
     }
   }
 
-  // Удаление продукта из заказа
   const deleteProduct = async () => {
     try {
       if (isDeleting.value) return

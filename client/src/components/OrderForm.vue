@@ -206,8 +206,6 @@
   import IconProductList from '@/components/icons/IconProductList.vue'
   import ProductPlaceholderImg from '@/assets/img/product-placeholder.webp'
 
-  // Вместо создания компонента с JSX, мы будем использовать встроенный SVG в шаблоне
-
   const emit = defineEmits(['delete-click', 'delete-product'])
 
   const tableContainer = ref(null)
@@ -227,28 +225,22 @@
     }
   })
 
-  // Функция для выбора заказа и отображения его продуктов
   const toggleOrderProducts = (order) => {
     if (selectedOrder.value && selectedOrder.value.id === order.id) {
-      // Если кликнули на уже выбранный заказ, закрываем панель
       selectedOrder.value = null
     } else {
-      // Выбираем новый заказ
       selectedOrder.value = order
     }
   }
 
-  // Функция для закрытия боковой панели с продуктами
   const closeProductsSidebar = () => {
     selectedOrder.value = null
   }
 
-  // Функция для удаления продукта из заказа
   const deleteProductFromOrder = (product) => {
     emit('delete-product', { product, orderId: selectedOrder.value.id })
   }
 
-  // Функция для начала перетаскивания
   const startDrag = (e) => {
     // Проверяем, не взаимодействует ли пользователь с кнопкой или другим интерактивным элементом
     if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) {
@@ -265,7 +257,6 @@
     document.body.classList.add('no-select')
   }
 
-  // Функция для процесса перетаскивания
   const doDrag = (e) => {
     if (!isDragging.value) return
 
@@ -275,14 +266,12 @@
     tableContainer.value.scrollLeft = scrollLeft.value - walk
   }
 
-  // Функция для завершения перетаскивания
   const stopDrag = () => {
     isDragging.value = false
     document.body.style.cursor = ''
     document.body.classList.remove('no-select')
   }
 
-  // Получение цены по символу валюты из объекта продукта
   const getPriceBySymbol = (priceArray, symbol) => {
     if (!priceArray || !Array.isArray(priceArray) || priceArray.length === 0) {
       return null
@@ -290,20 +279,16 @@
     return priceArray.find((price) => price.symbol === symbol) || null
   }
 
-  // Расчет общей суммы цен продуктов в заказе
   const calculateTotalPrice = (order, currency) => {
-    // Если у заказа нет продуктов, возвращаем тире
     if (!order.products || !Array.isArray(order.products) || order.products.length === 0) {
       return '—'
     }
 
-    // Проверяем, есть ли у всех продуктов цена в данной валюте
     const allProductsHaveCurrency = order.products.every((product) => {
       const price = getPriceBySymbol(product.price, currency)
       return price !== null
     })
 
-    // Если хотя бы у одного продукта нет цены в данной валюте, возвращаем тире
     if (!allProductsHaveCurrency) {
       return '—'
     }
@@ -371,16 +356,16 @@
     display: flex;
     width: 100%;
     position: relative;
-    flex-direction: row; /* Принудительно задаем горизонтальное направление */
-    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
-    gap: 16px; /* Фиксированный отступ между элементами */
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
   }
 
   .orders-table-container {
     font-family: Arial, sans-serif;
-    flex: 1 1 auto; /* Растягиваем по доступной ширине */
-    min-width: 0; /* Важно для корректного flex-shrink */
-    width: 100%; /* Начальная ширина */
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
     overflow-x: auto;
     background-color: #fff;
     border-radius: 8px;
@@ -396,7 +381,7 @@
     }
 
     &.collapsed {
-      flex: 0 0 25%; /* Уменьшаем ширину основной таблицы */
+      flex: 0 0 25%;
       min-width: 250px;
     }
 
@@ -604,17 +589,16 @@
     }
   }
 
-  /* Стили для боковой панели с продуктами */
   .products-sidebar {
-    flex: 0 0 75%; /* Увеличиваем ширину панели продуктов */
-    max-width: 75%; /* Максимальная ширина */
+    flex: 0 0 75%;
+    max-width: 75%;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    visibility: visible; /* Явно задаем видимость */
+    visibility: visible;
     opacity: 1;
     transition:
       opacity 0.3s ease,
@@ -624,14 +608,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 16px; /* Синхронизируем padding с header основной таблицы */
-      border-bottom: 5px solid var(--color-main-grey, #e0e0e0); /* Соответствует стилю основной таблицы */
+      padding: 12px 16px;
+      border-bottom: 5px solid var(--color-main-grey);
 
       h3 {
         margin: 0;
         font-size: 18px;
         color: #333;
-        font-weight: normal; /* Соответствует стилю основной таблицы */
+        font-weight: normal;
       }
 
       .close-sidebar-btn {
@@ -681,49 +665,48 @@
       .products-table {
         border-collapse: collapse;
         width: 100%;
-        table-layout: fixed; /* Фиксированный layout для контроля ширины */
+        table-layout: fixed;
 
         thead th {
-          padding: 10px 8px; /* Уменьшаем padding */
+          padding: 10px 8px;
           font-weight: normal;
           color: #666;
           border-bottom: 5px solid var(--color-main-grey, #e0e0e0);
           text-align: left;
-          white-space: nowrap; /* Предотвращаем перенос текста */
+          white-space: nowrap;
         }
 
-        /* Уменьшаем ширину конкретных столбцов */
         .dot-column {
           width: 20px;
           max-width: 20px;
         }
 
         .model-column {
-          width: auto; /* Этот столбец будет растягиваться */
+          width: auto;
           min-width: 200px;
         }
 
         .status-column {
-          width: 80px;
-          max-width: 80px;
+          width: 150px;
+          max-width: 150px;
           white-space: nowrap;
         }
 
         .action-column {
-          width: 50px; /* Увеличиваем ширину, чтобы кнопка помещалась полностью */
-          max-width: 50px;
+          width: 120px;
+          max-width: 120px;
           text-align: center;
         }
 
         tbody td {
-          padding: 10px 8px; /* Уменьшаем padding */
-          border-bottom: 1px solid var(--color-main-grey, #e0e0e0);
+          padding: 10px 8px;
+          border-bottom: 1px solid var(--color-main-grey);
           vertical-align: middle;
         }
 
         .product-row {
           &:hover {
-            background-color: var(--color-main-grey, #f5f5f5);
+            background-color: var(--color-main-grey);
           }
 
           &:last-child td {
@@ -752,21 +735,21 @@
 
           .product-photo {
             object-fit: cover;
-            width: 40px; /* Уменьшаем размер фото */
+            width: 40px;
             height: 32px;
-            margin-right: 8px; /* Уменьшаем отступ */
+            margin-right: 8px;
             border-radius: 4px;
           }
 
           .product-info {
-            min-width: 0; /* Чтобы текст мог сжиматься */
-            overflow: hidden; /* Скрываем переполнение */
+            min-width: 0;
+            overflow: hidden;
           }
 
           .product-title {
             white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis; /* Добавляем многоточие для длинных названий */
+            text-overflow: ellipsis;
           }
 
           .serial-number {
@@ -779,7 +762,7 @@
         }
 
         .status-container {
-          text-align: center;
+          text-align: left;
           white-space: nowrap;
 
           .status-free {
@@ -791,7 +774,6 @@
           }
         }
 
-        /* Применяем те же стили для кнопки удаления, что и в основной таблице */
         .delete-button {
           display: flex;
           align-items: center;
@@ -804,7 +786,7 @@
           cursor: pointer;
           transition: all 0.2s ease;
           position: relative;
-          margin: 0 auto; /* Центрируем кнопку */
+          margin: 0 auto;
 
           &:hover {
             background-color: rgba(0, 0, 0, 0.05);

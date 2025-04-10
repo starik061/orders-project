@@ -197,33 +197,28 @@
     tableContainer.value.scrollLeft = scrollLeft.value - walk
   }
 
-  // Функция для завершения перетаскивания
-  const stopDrag = () => {
+   const stopDrag = () => {
     isDragging.value = false
     document.body.style.cursor = ''
     document.body.classList.remove('no-select')
   }
 
-  // Получение заголовка заказа
-  const getOrderTitle = (product) => {
+   const getOrderTitle = (product) => {
     return product.orderTitle || '—'
   }
 
-  // Получение ответственного
   const getResponsible = (product) => {
     return product.responsible || '—'
   }
 
-  // Получение цены по символу валюты
-  const getPriceBySymbol = (priceArray, symbol) => {
+ const getPriceBySymbol = (priceArray, symbol) => {
     if (!priceArray || !Array.isArray(priceArray) || priceArray.length === 0) {
       return null
     }
     return priceArray.find((price) => price.symbol === symbol) || null
   }
 
-  // Функции форматирования даты
-  const formatDate = (dateString) => {
+const formatDate = (dateString) => {
     const date = new Date(dateString)
     const day = date.getDate().toString().padStart(2, '0')
     const month = (date.getMonth() + 1).toString().padStart(2, '0')

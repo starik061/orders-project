@@ -164,7 +164,6 @@
     if (ordersStore.searchQuery) {
       const query = ordersStore.searchQuery.toLowerCase()
       filtered = filtered.filter((product) => {
-        // Поиск в заголовке (модель)
         return product.title && product.title.toLowerCase().includes(query)
       })
     }
@@ -176,7 +175,6 @@
     return allProducts.value.length > 0 && filteredProducts.value.length === 0
   })
 
-  // Очистка поиска
   const clearSearch = () => {
     ordersStore.setSearchQuery('')
   }

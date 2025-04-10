@@ -250,8 +250,7 @@
   }
 
   const startDrag = (e) => {
-    // Проверяем, не взаимодействует ли пользователь с кнопкой или другим интерактивным элементом
-    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) {
+       if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) {
       return
     }
 
@@ -309,8 +308,7 @@
     return `${total} ${currency}`
   }
 
-  // Функции форматирования даты
-  const formatShortDate = (dateString) => {
+   const formatShortDate = (dateString) => {
     if (!dateString) return '—'
 
     const date = new Date(dateString)

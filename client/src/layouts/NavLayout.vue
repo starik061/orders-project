@@ -6,12 +6,14 @@
       <SideNav class="layout__sidebar" />
 
       <main class="layout__content">
-        <Transition
-          name="fade"
-          mode="out-in"
-        >
-          <RouterView />
-        </Transition>
+        <RouterView v-slot="{ Component }">
+          <Transition
+            name="fade"
+            mode="out-in"
+          >
+            <component :is="Component" />
+          </Transition>
+        </RouterView>
       </main>
     </div>
   </div>

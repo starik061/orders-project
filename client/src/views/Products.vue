@@ -111,6 +111,7 @@
   import { useOrdersStore } from '@/stores/useOrdersStore'
   import Modal from '@/components/Modal.vue'
   import { deleteProduct } from '@/api/orders'
+  import { toast } from 'vue3-toastify'
 
   const ordersStore = useOrdersStore()
   const localError = ref(null)

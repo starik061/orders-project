@@ -201,7 +201,7 @@
 </template>
 
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue'
+  import { ref, onMounted, onUnmounted, computed } from 'vue'
   import IconDeleteBin from '@/components/icons/IconDeleteBin.vue'
   import IconProductList from '@/components/icons/IconProductList.vue'
   import ProductPlaceholderImg from '@/assets/img/product-placeholder.webp'
@@ -212,9 +212,14 @@
   const isDragging = ref(false)
   const startX = ref(0)
   const scrollLeft = ref(0)
-  const selectedOrder = ref(null)
+  const selectedOrderId = ref(null)
 
-  defineProps({
+  const selectedOrder = computed(() => {
+    if (!selectedOrderId.value) return null
+    return props.orders.find((order) => order.id === selectedOrderId.value) || null
+  })
+
+  const props = defineProps({
     orders: {
       type: Array,
       required: true
@@ -226,19 +231,22 @@
   })
 
   const toggleOrderProducts = (order) => {
-    if (selectedOrder.value && selectedOrder.value.id === order.id) {
-      selectedOrder.value = null
+    if (selectedOrderId.value === order.id) {
+      selectedOrderId.value = null
     } else {
-      selectedOrder.value = order
+      selectedOrderId.value = order.id
     }
   }
 
   const closeProductsSidebar = () => {
-    selectedOrder.value = null
+    selectedOrderId.value = null
   }
 
   const deleteProductFromOrder = (product) => {
-    emit('delete-product', { product, orderId: selectedOrder.value.id })
+    emit('delete-product', {
+      product,
+      orderId: selectedOrderId.value
+    })
   }
 
   const startDrag = (e) => {
